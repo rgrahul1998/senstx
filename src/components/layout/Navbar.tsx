@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   const services = [
-    { name: "Financial Services", href: "/services/financial-services" },
+    { name: "Financial Services", href: "/services/FinancialServicesPage" },
     { name: "Enterprise Solution", href: "/services/enterprise-solution" },
     { name: "AI & Automation", href: "/services/ai-automation" },
     { name: "Data Analytics", href: "/services/data-analytics" },
@@ -27,17 +27,20 @@ const Navbar = () => {
   return (
     <nav className="backdrop-blur-xl bg-white/10 border-b border-white/20 p-4 sticky top-0 z-50 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold ">
+
+        {/* Logo */}
+        <Link to="/" className="text-xl font-bold">
           Consulting App
         </Link>
+
+        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 items-center">
-          <Link
-            to="/who-we-are"
-            className="text-gray-600  transition-colors"
-          >
+
+          <Link to="/who-we-are" className="text-gray-600 transition-colors">
             Who We Are
           </Link>
 
+          {/* Services Dropdown */}
           <div>
             <Button
               id="services-button"
@@ -50,6 +53,7 @@ const Navbar = () => {
             >
               Services
             </Button>
+
             <Menu
               id="services-menu"
               anchorEl={anchorEl}
@@ -72,19 +76,14 @@ const Navbar = () => {
             </Menu>
           </div>
 
-          <Link
-            to="/career"
-            className="text-gray-600 transition-colors"
-          >
+          <Link to="/career" className="text-gray-600 transition-colors">
             Career
           </Link>
-          <Link
-            to="/contact"
-            className="text-gray-600 transition-colors"
-          >
+          <Link to="/contact" className="text-gray-600 transition-colors">
             Contact
           </Link>
         </div>
+
       </div>
     </nav>
   );
