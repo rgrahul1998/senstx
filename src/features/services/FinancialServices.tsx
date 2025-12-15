@@ -1,4 +1,4 @@
-import { ArrowRight, Shield, TrendingUp, FileText, AlertTriangle, BarChart, Lock, Link } from "lucide-react"
+import { ArrowRight, Shield, TrendingUp, FileText, AlertTriangle, BarChart, Lock } from "lucide-react"
 import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"

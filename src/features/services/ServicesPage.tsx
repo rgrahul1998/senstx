@@ -45,7 +45,7 @@ const ServicesPage = () => {
             <p className="text-gray-600 mb-4 flex-grow">
               {service.description}
             </p>
-            <Button variant="outlined" color="primary" className="mt-auto">
+            <Button variant="outline" color="primary" className="mt-auto">
               Learn More
             </Button>
           </Card>
