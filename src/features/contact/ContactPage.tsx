@@ -8,9 +8,11 @@ import { Input } from "../../components/common/Inputs"
 import { Button } from "../../components/common/Button"
 import { CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
 import { submitContact, type ContactFormData } from "../../api/contact"
+import { useSettings } from "../../context/SettingsContext"
 
 export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const { settings } = useSettings()
     const [submitStatus, setSubmitStatus] = useState<{
         type: "success" | "error" | null
         message: string
@@ -93,10 +95,7 @@ export default function ContactPage() {
                                                 Email
                                             </h3>
                                             <p className="text-sm text-muted-foreground">
-                                                info@senstx.com
-                                            </p>
-                                            <p className="text-sm text-muted-foreground">
-                                                sales@senstx.com
+                                                {settings?.company_email}
                                             </p>
                                         </div>
                                     </CardContent>
@@ -112,10 +111,7 @@ export default function ContactPage() {
                                                 Phone
                                             </h3>
                                             <p className="text-sm text-muted-foreground">
-                                                +1 (555) 123-4567
-                                            </p>
-                                            <p className="text-sm text-muted-foreground">
-                                                Mon-Fri 9am-6pm EST
+                                                {settings?.company_mobile}
                                             </p>
                                         </div>
                                     </CardContent>
@@ -131,10 +127,10 @@ export default function ContactPage() {
                                                 Office
                                             </h3>
                                             <p className="text-sm text-muted-foreground">
-                                                123 Tech Street
+                                                {settings?.company_add_line_1}
                                             </p>
                                             <p className="text-sm text-muted-foreground">
-                                                San Francisco, CA 94105
+                                                {settings?.company_add_line_2}
                                             </p>
                                         </div>
                                     </CardContent>

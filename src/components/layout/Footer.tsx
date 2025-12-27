@@ -1,6 +1,9 @@
 import logo from "../../assets/logo/Senstx.png"
+import { useSettings } from "../../context/SettingsContext"
 
 const Footer = () => {
+    const { settings } = useSettings()
+
     return (
         <footer className="bg-white text-gray-700 rounded-b-2xl shadow-sm">
             {/* Top Section */}
@@ -58,8 +61,8 @@ const Footer = () => {
                 {/* Column 4 */}
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Contact</h3>
-                    <p className="text-gray-600">info@senstx.com</p>
-                    <p className="text-gray-600 mt-1">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">{settings?.company_email}</p>
+                    <p className="text-gray-600 mt-1">{settings?.company_mobile}</p>
                 </div>
             </div>
 
