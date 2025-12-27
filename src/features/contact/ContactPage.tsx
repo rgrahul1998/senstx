@@ -93,10 +93,10 @@ export default function ContactPage() {
                                                 Email
                                             </h3>
                                             <p className="text-sm text-muted-foreground">
-                                                info@techconsult.com
+                                                info@senstx.com
                                             </p>
                                             <p className="text-sm text-muted-foreground">
-                                                sales@techconsult.com
+                                                sales@senstx.com
                                             </p>
                                         </div>
                                     </CardContent>

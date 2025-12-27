@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import { Menu, MenuItem } from "@mui/material"
 import { ChevronDown } from "lucide-react"
 
+import logo from "../../assets/logo/Senstx.png"
+
 const Navbar = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
@@ -25,11 +27,11 @@ const Navbar = () => {
     ]
 
     return (
-        <nav className="backdrop-blur-xl bg-white/10 border-b border-white/20 p-4 sticky top-0 z-50 shadow-lg">
+        <nav className="backdrop-blur-xl bg-white/10 border-b border-white/20 py-1 px-4 sticky top-0 z-50 shadow-lg">
             <div className="container mx-auto flex justify-between items-center">
                 {/* Logo */}
-                <Link to="/" className="text-xl font-bold">
-                    Senstx
+                <Link to="/" className="flex items-center">
+                    <img src={logo} alt="Senstx Logo" className="h-14 w-auto" />
                 </Link>
 
                 {/* Desktop Menu */}
