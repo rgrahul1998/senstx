@@ -15,6 +15,8 @@ import {
     Zap,
 } from "lucide-react"
 import Card from "../components/common/Card"
+import Lottie from "lottie-react"
+import businessMeetingAnimation from "../../public/home/hero/Business Meeting Animation.json"
 
 const Home = () => {
     const heroServices = [
@@ -26,7 +28,8 @@ const Home = () => {
             description:
                 "Leverage advanced credit risk management, fraud detection, and operational risk solutions to transform your data into actionable business intelligence",
             icon: BarChart3,
-            image: "/home/hero/financial-risk-analytics-dashboard-network.jpg",
+            // image: "/home/hero/financial-risk-analytics-dashboard-network.jpg",
+            lottie: businessMeetingAnimation,
         },
         {
             badge: "Enterprise Solution",
@@ -205,18 +208,28 @@ const Home = () => {
                             </div>
                         </div>
 
-                        {/* Right Image */}
+                        {/* Right Image/Animation */}
                         <div className="relative">
                             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800">
-                                <img
-                                    src={heroServices[currentSlide].image}
-                                    alt={heroServices[currentSlide].title}
-                                    className="w-full h-full object-contain bg-slate-800"
-                                    onError={(e) => {
-                                        ;(e.target as HTMLImageElement).src =
-                                            "https://placehold.co/600x400?text=Placeholder"
-                                    }}
-                                />
+                                {heroServices[currentSlide].lottie ? (
+                                    <div className="w-full h-full bg-slate-800 flex items-center justify-center p-4">
+                                        <Lottie
+                                            animationData={heroServices[currentSlide].lottie}
+                                            loop={true}
+                                            className="w-full h-full"
+                                        />
+                                    </div>
+                                ) : (
+                                    <img
+                                        src={heroServices[currentSlide].image}
+                                        alt={heroServices[currentSlide].title}
+                                        className="w-full h-full object-contain bg-slate-800"
+                                        onError={(e) => {
+                                            ;(e.target as HTMLImageElement).src =
+                                                "https://placehold.co/600x400?text=Placeholder"
+                                        }}
+                                    />
+                                )}
                             </div>
                         </div>
                     </div>
