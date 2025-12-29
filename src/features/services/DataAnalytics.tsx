@@ -4,6 +4,7 @@ import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
+import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
 
 export default function DataAnalyticsPage() {
     const navigate = useNavigate()
@@ -53,122 +54,32 @@ export default function DataAnalyticsPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/data-analytics/data-engineering/automated-etl-pipeline.png"
-                                                        alt="Automated ETL Pipeline"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Database className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Automated ETL Pipeline Development
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Design and implement automated ETL
-                                                                processes to extract, transform, and
-                                                                load data efficiently. Build
-                                                                scalable pipelines that handle large
-                                                                volumes of data with error handling,
-                                                                monitoring, and automated
-                                                                scheduling.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Automated
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Scalable
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Monitoring
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Automated ETL Pipeline Development"
+                                                description="Design and implement automated ETL processes to extract, transform, and load data efficiently. Build scalable pipelines that handle large volumes of data with error handling, monitoring, and automated scheduling."
+                                                imageSrc="/services/data-analytics/data-engineering/automated-etl-pipeline.png"
+                                                imageAlt="Automated ETL Pipeline"
+                                                icon={Database}
+                                                tags={["Automated", "Scalable", "Monitoring"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/data-analytics/data-engineering/realtime-data-integration.png"
-                                                        alt="Real-time Data Integration"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Zap className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Real-time Data Integration
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Connect multiple data sources with
-                                                                real-time synchronization for
-                                                                up-to-date insights. Stream
-                                                                processing capabilities ensure data
-                                                                is always current and available for
-                                                                immediate analysis.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Real-time
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Streaming
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Multi-source
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Real-time Data Integration"
+                                                description="Connect multiple data sources with real-time synchronization for up-to-date insights. Stream processing capabilities ensure data is always current and available for immediate analysis."
+                                                imageSrc="/services/data-analytics/data-engineering/realtime-data-integration.png"
+                                                imageAlt="Real-time Data Integration"
+                                                icon={Zap}
+                                                tags={["Real-time", "Streaming", "Multi-source"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/data-analytics/data-engineering/Financial Data Warehousing.jpg"
-                                                        alt="Financial Data Warehousing"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Warehouse className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Financial Data Warehousing
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Centralized data warehouse solutions
-                                                                optimized for financial analysis and
-                                                                reporting. Enterprise-grade
-                                                                architecture with data governance,
-                                                                security, and compliance built-in.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Centralized
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Secure
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Optimized
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Financial Data Warehousing"
+                                                description="Centralized data warehouse solutions optimized for financial analysis and reporting. Enterprise-grade architecture with data governance, security, and compliance built-in."
+                                                imageSrc="/services/data-analytics/data-engineering/Financial Data Warehousing.jpg"
+                                                imageAlt="Financial Data Warehousing"
+                                                icon={Warehouse}
+                                                tags={["Centralized", "Secure", "Optimized"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -190,85 +101,27 @@ export default function DataAnalyticsPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/data-analytics/business-intelligence/Custom BI Dashboards .jpg"
-                                                        alt="Custom BI Dashboards"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <BarChart3 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Custom BI Dashboards (Power BI,
-                                                                Tableau)
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Interactive dashboards tailored to
-                                                                your KPIs with drill-down
-                                                                capabilities. Create stunning
-                                                                visualizations that tell your data
-                                                                story and enable data-driven
-                                                                decision making across your
-                                                                organization.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Interactive
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Custom KPIs
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Drill-down
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Custom BI Dashboards (Power BI, Tableau)"
+                                                description="Interactive dashboards tailored to your KPIs with drill-down capabilities. Create stunning visualizations that tell your data story and enable data-driven decision making across your organization."
+                                                imageSrc="/services/data-analytics/business-intelligence/Custom BI Dashboards .jpg"
+                                                imageAlt="Custom BI Dashboards"
+                                                icon={BarChart3}
+                                                tags={["Interactive", "Custom KPIs", "Drill-down"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/data-analytics/business-intelligence/Financial KPI Visualization2.jpg"
-                                                        alt="Financial KPI Visualization"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <TrendingUp className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Financial KPI Visualization
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Track and visualize key financial
-                                                                metrics with real-time performance
-                                                                indicators. Monitor revenue,
-                                                                expenses, profitability, and other
-                                                                critical financial metrics at a
-                                                                glance.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Real-time
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Financial Metrics
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Performance
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Financial KPI Visualization"
+                                                description="Track and visualize key financial metrics with real-time performance indicators. Monitor revenue, expenses, profitability, and other critical financial metrics at a glance."
+                                                imageSrc="/services/data-analytics/business-intelligence/Financial KPI Visualization2.jpg"
+                                                imageAlt="Financial KPI Visualization"
+                                                icon={TrendingUp}
+                                                tags={[
+                                                    "Real-time",
+                                                    "Financial Metrics",
+                                                    "Performance",
+                                                ]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -290,120 +143,44 @@ export default function DataAnalyticsPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/data-analytics/advanced-analytics/Sales & Revenue Analytics.jpg"
-                                                        alt="Sales & Revenue Analytics"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <TrendingUp className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Sales & Revenue Analytics
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Comprehensive sales analysis with
-                                                                revenue forecasting and trend
-                                                                identification. Predictive models
-                                                                help anticipate future sales
-                                                                patterns and optimize revenue
-                                                                strategies.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Forecasting
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Trend Analysis
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Predictive
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Sales & Revenue Analytics"
+                                                description="Comprehensive sales analysis with revenue forecasting and trend identification. Predictive models help anticipate future sales patterns and optimize revenue strategies."
+                                                imageSrc="/services/data-analytics/advanced-analytics/Sales & Revenue Analytics.jpg"
+                                                imageAlt="Sales & Revenue Analytics"
+                                                icon={TrendingUp}
+                                                tags={[
+                                                    "Forecasting",
+                                                    "Trend Analysis",
+                                                    "Predictive",
+                                                ]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/data-analytics/advanced-analytics/Customer Behavior Analysis.jpg"
-                                                        alt="Customer Behavior Analysis"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Users className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Customer Behavior Analysis
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Deep insights into customer
-                                                                patterns, preferences, and lifetime
-                                                                value. Understand what drives
-                                                                customer decisions and optimize
-                                                                engagement strategies.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Behavioral Insights
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            LTV Analysis
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Patterns
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Customer Behavior Analysis"
+                                                description="Deep insights into customer patterns, preferences, and lifetime value. Understand what drives customer decisions and optimize engagement strategies."
+                                                imageSrc="/services/data-analytics/advanced-analytics/Customer Behavior Analysis.jpg"
+                                                imageAlt="Customer Behavior Analysis"
+                                                icon={Users}
+                                                tags={[
+                                                    "Behavioral Insights",
+                                                    "LTV Analysis",
+                                                    "Patterns",
+                                                ]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/data-analytics/advanced-analytics/Customer Analytics Report.jpg"
-                                                        alt="Customer Analytics Report"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <BarChart3 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Customer Analytics Report
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Detailed customer segmentation and
-                                                                behavior reports for targeted
-                                                                marketing. Actionable insights to
-                                                                personalize campaigns and improve
-                                                                customer retention.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Segmentation
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Targeted Marketing
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Reports
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Customer Analytics Report"
+                                                description="Detailed customer segmentation and behavior reports for targeted marketing. Actionable insights to personalize campaigns and improve customer retention."
+                                                imageSrc="/services/data-analytics/advanced-analytics/Customer Analytics Report.jpg"
+                                                imageAlt="Customer Analytics Report"
+                                                icon={BarChart3}
+                                                tags={[
+                                                    "Segmentation",
+                                                    "Targeted Marketing",
+                                                    "Reports",
+                                                ]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>

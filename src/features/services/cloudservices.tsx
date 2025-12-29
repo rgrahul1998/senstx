@@ -4,6 +4,7 @@ import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
+import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
 
 export default function CloudServicesPage() {
     const navigate = useNavigate()
@@ -54,42 +55,14 @@ export default function CloudServicesPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/cloud-services/infrastructure/aws-cloud-setup.png"
-                                                        alt="AWS Cloud Setup"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Server className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                AWS Cloud Setup & Management
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Complete AWS infrastructure design,
-                                                                deployment, and ongoing management.
-                                                                Leverage the full power of Amazon
-                                                                Web Services for your business.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            AWS
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Infrastructure
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Managed
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="AWS Cloud Setup & Management"
+                                                description="Complete AWS infrastructure design, deployment, and ongoing management. Leverage the full power of Amazon Web Services for your business."
+                                                imageSrc="/services/cloud-services/infrastructure/aws-cloud-setup.png"
+                                                imageAlt="AWS Cloud Setup"
+                                                icon={Server}
+                                                tags={["AWS", "Infrastructure", "Managed"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -111,80 +84,23 @@ export default function CloudServicesPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/cloud-services/migration/gcp-deployment.png"
-                                                        alt="Google Cloud Platform Deployment"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <CloudUpload className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Google Cloud Platform (GCP)
-                                                                Deployment
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                GCP infrastructure setup with best
-                                                                practices for scalability and
-                                                                security. Build on Google's powerful
-                                                                cloud platform.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            GCP
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Scalable
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Secure
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Google Cloud Platform (GCP) Deployment"
+                                                description="GCP infrastructure setup with best practices for scalability and security. Build on Google's powerful cloud platform."
+                                                imageSrc="/services/cloud-services/migration/gcp-deployment.png"
+                                                imageAlt="Google Cloud Platform Deployment"
+                                                icon={CloudUpload}
+                                                tags={["GCP", "Scalable", "Secure"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/cloud-services/migration/azure-infrastructure.png"
-                                                        alt="Microsoft Azure Infrastructure"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Server className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Microsoft Azure Infrastructure
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Azure cloud solutions with
-                                                                integration to Microsoft ecosystem.
-                                                                Seamless connectivity with your
-                                                                Microsoft tools.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Azure
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Microsoft
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Integration
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Microsoft Azure Infrastructure"
+                                                description="Azure cloud solutions with integration to Microsoft ecosystem. Seamless connectivity with your Microsoft tools."
+                                                imageSrc="/services/cloud-services/migration/azure-infrastructure.png"
+                                                imageAlt="Microsoft Azure Infrastructure"
+                                                icon={Server}
+                                                tags={["Azure", "Microsoft", "Integration"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -206,42 +122,14 @@ export default function CloudServicesPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/cloud-services/multi-cloud/multi-cloud-setup.png"
-                                                        alt="Multi-cloud Infrastructure"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Network className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Multi-cloud Infrastructure Setup
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Design and deploy infrastructure
-                                                                across multiple cloud providers.
-                                                                Maximize flexibility and minimize
-                                                                vendor lock-in.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Multi-cloud
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Flexible
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Resilient
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Multi-cloud Infrastructure Setup"
+                                                description="Design and deploy infrastructure across multiple cloud providers. Maximize flexibility and minimize vendor lock-in."
+                                                imageSrc="/services/cloud-services/multi-cloud/multi-cloud-setup.png"
+                                                imageAlt="Multi-cloud Infrastructure"
+                                                icon={Network}
+                                                tags={["Multi-cloud", "Flexible", "Resilient"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>

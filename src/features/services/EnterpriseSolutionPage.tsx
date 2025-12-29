@@ -25,6 +25,7 @@ import Card, {
     CardTitle,
 } from "../../components/common/Card"
 import { useNavigate } from "react-router-dom"
+import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
 
 export default function EnterpriseSolutionPage() {
     const navigate = useNavigate()
@@ -78,157 +79,41 @@ export default function EnterpriseSolutionPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/erp/custom-erp-development.png"
-                                                        alt="Custom ERP Development"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Settings className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Custom ERP Development &
-                                                                Implementation
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Tailored ERP systems designed to
-                                                                match your unique business processes
-                                                                and workflows. Build comprehensive
-                                                                solutions that integrate all aspects
-                                                                of your business operations.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Custom Built
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Tailored
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Integrated
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Custom ERP Development & Implementation"
+                                                description="Tailored ERP systems designed to match your unique business processes and workflows. Build comprehensive solutions that integrate all aspects of your business operations."
+                                                imageSrc="/services/enterprise-solutions/erp/custom-erp-development.png"
+                                                imageAlt="Custom ERP Development"
+                                                icon={Settings}
+                                                tags={["Custom Built", "Tailored", "Integrated"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/erp/dynamics-365-integration.png"
-                                                        alt="Dynamics 365 Integration"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Cloud className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Dynamics 365 Integration
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Seamless Microsoft Dynamics 365
-                                                                implementation and customization for
-                                                                enterprise needs. Leverage the power
-                                                                of Microsoft's cloud-based ERP
-                                                                platform.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Microsoft
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Cloud-based
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Enterprise
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Dynamics 365 Integration"
+                                                description="Seamless Microsoft Dynamics 365 implementation and customization for enterprise needs. Leverage the power of Microsoft's cloud-based ERP platform."
+                                                imageSrc="/services/enterprise-solutions/erp/dynamics-365-integration.png"
+                                                imageAlt="Dynamics 365 Integration"
+                                                icon={Cloud}
+                                                tags={["Microsoft", "Cloud-based", "Enterprise"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/erp/erp-module-customization.png"
-                                                        alt="ERP Module Customization"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Layers className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                ERP Module Customization
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Custom modules to extend your ERP
-                                                                capabilities and adapt to changing
-                                                                business requirements. Add new
-                                                                functionality without disrupting
-                                                                existing operations.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Modular
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Extensible
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Flexible
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="ERP Module Customization"
+                                                description="Custom modules to extend your ERP capabilities and adapt to changing business requirements. Add new functionality without disrupting existing operations."
+                                                imageSrc="/services/enterprise-solutions/erp/erp-module-customization.png"
+                                                imageAlt="ERP Module Customization"
+                                                icon={Layers}
+                                                tags={["Modular", "Extensible", "Flexible"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/erp/workflow-automation.png"
-                                                        alt="Workflow Automation"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Workflow className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Multi-system Workflow Automation
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Automate complex workflows across
-                                                                multiple systems for improved
-                                                                efficiency. Streamline processes and
-                                                                reduce manual intervention.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Automated
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Multi-system
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Efficient
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Multi-system Workflow Automation"
+                                                description="Automate complex workflows across multiple systems for improved efficiency. Streamline processes and reduce manual intervention."
+                                                imageSrc="/services/enterprise-solutions/erp/workflow-automation.png"
+                                                imageAlt="Workflow Automation"
+                                                icon={Workflow}
+                                                tags={["Automated", "Multi-system", "Efficient"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -250,117 +135,36 @@ export default function EnterpriseSolutionPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/crm/salesforce-integration.png"
-                                                        alt="Salesforce Integration"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Building2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Salesforce Integration
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Complete Salesforce setup,
-                                                                customization, and integration with
-                                                                your existing systems. Maximize your
-                                                                CRM investment with tailored
-                                                                solutions.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Salesforce
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Customization
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Integration
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Salesforce Integration"
+                                                description="Complete Salesforce setup, customization, and integration with your existing systems. Maximize your CRM investment with tailored solutions."
+                                                imageSrc="/services/enterprise-solutions/crm/salesforce-integration.png"
+                                                imageAlt="Salesforce Integration"
+                                                icon={Building2}
+                                                tags={[
+                                                    "Salesforce",
+                                                    "Customization",
+                                                    "Integration",
+                                                ]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/crm/hubspot-integration.png"
-                                                        alt="HubSpot Integration"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Users className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                HubSpot Integration
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                HubSpot CRM implementation with
-                                                                marketing automation and sales
-                                                                pipeline management. Streamline your
-                                                                customer engagement.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            HubSpot
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Marketing
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Sales Pipeline
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="HubSpot Integration"
+                                                description="HubSpot CRM implementation with marketing automation and sales pipeline management. Streamline your customer engagement."
+                                                imageSrc="/services/enterprise-solutions/crm/hubspot-integration.png"
+                                                imageAlt="HubSpot Integration"
+                                                icon={Users}
+                                                tags={["HubSpot", "Marketing", "Sales Pipeline"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/crm/zoho-crm-integration.png"
-                                                        alt="Zoho CRM Integration"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Zoho CRM Integration
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Affordable and powerful Zoho CRM
-                                                                solutions for growing businesses.
-                                                                Scale your customer relationships
-                                                                efficiently.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Zoho
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Affordable
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Scalable
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Zoho CRM Integration"
+                                                description="Affordable and powerful Zoho CRM solutions for growing businesses. Scale your customer relationships efficiently."
+                                                imageSrc="/services/enterprise-solutions/crm/zoho-crm-integration.png"
+                                                imageAlt="Zoho CRM Integration"
+                                                icon={Phone}
+                                                tags={["Zoho", "Affordable", "Scalable"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -382,189 +186,50 @@ export default function EnterpriseSolutionPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/accounting/xero-integration.png"
-                                                        alt="Xero Integration"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <DollarSign className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Xero Integration
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Cloud-based accounting with Xero for
-                                                                real-time financial visibility.
-                                                                Manage your finances from anywhere
-                                                                with confidence.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Cloud-based
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Real-time
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Xero
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Xero Integration"
+                                                description="Cloud-based accounting with Xero for real-time financial visibility. Manage your finances from anywhere with confidence."
+                                                imageSrc="/services/enterprise-solutions/accounting/xero-integration.png"
+                                                imageAlt="Xero Integration"
+                                                icon={DollarSign}
+                                                tags={["Cloud-based", "Real-time", "Xero"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/accounting/quickbooks-integration.png"
-                                                        alt="QuickBooks Integration"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Calculator className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                QuickBooks Integration
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                QuickBooks setup and customization
-                                                                for small to medium businesses.
-                                                                Simplify your accounting processes.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            QuickBooks
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            SMB
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Customizable
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="QuickBooks Integration"
+                                                description="QuickBooks setup and customization for small to medium businesses. Simplify your accounting processes."
+                                                imageSrc="/services/enterprise-solutions/accounting/quickbooks-integration.png"
+                                                imageAlt="QuickBooks Integration"
+                                                icon={Calculator}
+                                                tags={["QuickBooks", "SMB", "Customizable"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/accounting/netsuite-integration.png"
-                                                        alt="NetSuite Integration"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Cloud className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                NetSuite Integration
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Enterprise-grade NetSuite ERP and
-                                                                financial management solutions.
-                                                                Comprehensive platform for large
-                                                                organizations.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            NetSuite
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Enterprise
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            ERP
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="NetSuite Integration"
+                                                description="Enterprise-grade NetSuite ERP and financial management solutions. Comprehensive platform for large organizations."
+                                                imageSrc="/services/enterprise-solutions/accounting/netsuite-integration.png"
+                                                imageAlt="NetSuite Integration"
+                                                icon={Cloud}
+                                                tags={["NetSuite", "Enterprise", "ERP"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/accounting/automated-invoice-processing.png"
-                                                        alt="Automated Invoice Processing"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <FileSpreadsheet className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Automated Invoice Processing
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Streamline invoice processing with
-                                                                automated data extraction and
-                                                                approval workflows. Reduce manual
-                                                                work and errors.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Automated
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Workflow
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Efficient
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Automated Invoice Processing"
+                                                description="Streamline invoice processing with automated data extraction and approval workflows. Reduce manual work and errors."
+                                                imageSrc="/services/enterprise-solutions/accounting/automated-invoice-processing.png"
+                                                imageAlt="Automated Invoice Processing"
+                                                icon={FileSpreadsheet}
+                                                tags={["Automated", "Workflow", "Efficient"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/accounting/realtime-data-sync.png"
-                                                        alt="Real-time Data Synchronization"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <RefreshCw className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Real-time Data Synchronization
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Keep all your financial systems in
-                                                                sync with real-time data
-                                                                integration. Ensure data consistency
-                                                                across platforms.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Real-time
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Sync
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Integration
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Real-time Data Synchronization"
+                                                description="Keep all your financial systems in sync with real-time data integration. Ensure data consistency across platforms."
+                                                imageSrc="/services/enterprise-solutions/accounting/realtime-data-sync.png"
+                                                imageAlt="Real-time Data Synchronization"
+                                                icon={RefreshCw}
+                                                tags={["Real-time", "Sync", "Integration"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -586,43 +251,14 @@ export default function EnterpriseSolutionPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/enterprise-solutions/ms-business/business-central.png"
-                                                        alt="Microsoft Business Central"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Cloud className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Microsoft Business Central
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Complete business management
-                                                                solution connecting sales, service,
-                                                                finance, and operations. All-in-one
-                                                                Microsoft platform for growing
-                                                                businesses.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Microsoft
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            All-in-one
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Cloud
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Microsoft Business Central"
+                                                description="Complete business management solution connecting sales, service, finance, and operations. All-in-one Microsoft platform for growing businesses."
+                                                imageSrc="/services/enterprise-solutions/ms-business/business-central.png"
+                                                imageAlt="Microsoft Business Central"
+                                                icon={Cloud}
+                                                tags={["Microsoft", "All-in-one", "Cloud"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>

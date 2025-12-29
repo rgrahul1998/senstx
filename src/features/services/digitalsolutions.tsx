@@ -8,6 +8,7 @@ import Card, {
 } from "../../components/common/Card"
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
+import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
 
 export default function DigitalSolutionsPage() {
     const navigate = useNavigate()
@@ -58,154 +59,41 @@ export default function DigitalSolutionsPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/digital-solutions/web-apps/progressive-web-apps.png"
-                                                        alt="Progressive Web Apps"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Smartphone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Progressive Web Apps (PWA)
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Fast, reliable, and engaging web
-                                                                applications that work offline and
-                                                                feel like native apps. Modern web
-                                                                technology at its best.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            PWA
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Offline-ready
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Fast
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Progressive Web Apps (PWA)"
+                                                description="Fast, reliable, and engaging web applications that work offline and feel like native apps. Modern web technology at its best."
+                                                imageSrc="/services/digital-solutions/web-apps/progressive-web-apps.png"
+                                                imageAlt="Progressive Web Apps"
+                                                icon={Smartphone}
+                                                tags={["PWA", "Offline-ready", "Fast"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/digital-solutions/web-apps/restful-api.png"
-                                                        alt="RESTful API Development"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Code2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                RESTful API Development
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Secure and scalable REST APIs for
-                                                                seamless integration between
-                                                                systems. Build robust API
-                                                                infrastructure.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            REST API
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Secure
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Scalable
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="RESTful API Development"
+                                                description="Secure and scalable REST APIs for seamless integration between systems. Build robust API infrastructure."
+                                                imageSrc="/services/digital-solutions/web-apps/restful-api.png"
+                                                imageAlt="RESTful API Development"
+                                                icon={Code2}
+                                                tags={["REST API", "Secure", "Scalable"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/digital-solutions/web-apps/frontend-development.png"
-                                                        alt="Frontend Development"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Layout className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Frontend Development (React,
-                                                                Angular, Vue)
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Modern, responsive frontends built
-                                                                with the latest JavaScript
-                                                                frameworks. Beautiful and performant
-                                                                user interfaces.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            React
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Angular
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Vue
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Frontend Development (React, Angular, Vue)"
+                                                description="Modern, responsive frontends built with the latest JavaScript frameworks. Beautiful and performant user interfaces."
+                                                imageSrc="/services/digital-solutions/web-apps/frontend-development.png"
+                                                imageAlt="Frontend Development"
+                                                icon={Layout}
+                                                tags={["React", "Angular", "Vue"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/digital-solutions/web-apps/backend-development.png"
-                                                        alt="Backend Development"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Server className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Backend Development (Node.js,
-                                                                Python, .NET)
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Robust backend systems with your
-                                                                preferred technology stack. Powerful
-                                                                server-side solutions.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Node.js
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Python
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            .NET
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Backend Development (Node.js, Python, .NET)"
+                                                description="Robust backend systems with your preferred technology stack. Powerful server-side solutions."
+                                                imageSrc="/services/digital-solutions/web-apps/backend-development.png"
+                                                imageAlt="Backend Development"
+                                                icon={Server}
+                                                tags={["Node.js", "Python", ".NET"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -227,42 +115,14 @@ export default function DigitalSolutionsPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/digital-solutions/portals/enterprise-portal.png"
-                                                        alt="Enterprise Portal Dashboard"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Layout className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Enterprise Portal Dashboard
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Centralized portals for internal
-                                                                teams with role-based access and
-                                                                workflows. Streamline collaboration
-                                                                and operations.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Portal
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Role-based
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Centralized
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Enterprise Portal Dashboard"
+                                                description="Centralized portals for internal teams with role-based access and workflows. Streamline collaboration and operations."
+                                                imageSrc="/services/digital-solutions/portals/enterprise-portal.png"
+                                                imageAlt="Enterprise Portal Dashboard"
+                                                icon={Layout}
+                                                tags={["Portal", "Role-based", "Centralized"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -284,42 +144,18 @@ export default function DigitalSolutionsPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/digital-solutions/api/api-integration.png"
-                                                        alt="API Integration Diagram"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Code2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                API Integration Diagram
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Design and document API
-                                                                architectures for complex system
-                                                                integrations. Clear blueprints for
-                                                                seamless connectivity.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            API Design
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Documentation
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Integration
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="API Integration Diagram"
+                                                description="Design and document API architectures for complex system integrations. Clear blueprints for seamless connectivity."
+                                                imageSrc="/services/digital-solutions/api/api-integration.png"
+                                                imageAlt="API Integration Diagram"
+                                                icon={Code2}
+                                                tags={[
+                                                    "API Design",
+                                                    "Documentation",
+                                                    "Integration",
+                                                ]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>

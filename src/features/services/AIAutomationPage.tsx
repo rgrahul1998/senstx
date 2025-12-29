@@ -4,6 +4,7 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "../../compo
 import { Button } from "../../components/common/Button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
 import { useNavigate } from "react-router-dom"
+import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
 
 export default function AIAutomationPage() {
     const navigate = useNavigate()
@@ -54,82 +55,27 @@ export default function AIAutomationPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/ai-automation/financial-ai-risk/credit-risk-prediction.png"
-                                                        alt="Credit Risk Prediction"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Brain className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Credit Risk Prediction Models
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Machine learning models to predict
-                                                                credit defaults and assess borrower
-                                                                risk. Advanced algorithms analyze
-                                                                historical data and patterns to
-                                                                provide accurate risk predictions
-                                                                and early warning signals.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            ML-Powered
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Predictive
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Risk Assessment
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Credit Risk Prediction Models"
+                                                description="Machine learning models to predict credit defaults and assess borrower risk. Advanced algorithms analyze historical data and patterns to provide accurate risk predictions and early warning signals."
+                                                imageSrc="/services/ai-automation/financial-ai-risk/credit-risk-prediction.png"
+                                                imageAlt="Credit Risk Prediction"
+                                                icon={Brain}
+                                                tags={[
+                                                    "ML-Powered",
+                                                    "Predictive",
+                                                    "Risk Assessment",
+                                                ]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/ai-automation/financial-ai-risk/risk-scoring-automation.png"
-                                                        alt="Risk Scoring Automation"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Shield className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Risk Scoring & Monitoring Automation
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Automated risk scoring systems with
-                                                                real-time monitoring and alerts.
-                                                                Continuous assessment of risk levels
-                                                                with instant notifications for
-                                                                threshold breaches and anomalies.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Automated
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Real-time
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Alerts
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Risk Scoring & Monitoring Automation"
+                                                description="Automated risk scoring systems with real-time monitoring and alerts. Continuous assessment of risk levels with instant notifications for threshold breaches and anomalies."
+                                                imageSrc="/services/ai-automation/financial-ai-risk/risk-scoring-automation.png"
+                                                imageAlt="Risk Scoring Automation"
+                                                icon={Shield}
+                                                tags={["Automated", "Real-time", "Alerts"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -151,122 +97,36 @@ export default function AIAutomationPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/ai-automation/document-processing/fraud-detection-alerts.png"
-                                                        alt="Fraud Detection Alerts"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Shield className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Fraud Detection & Alert Systems
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Real-time fraud detection with
-                                                                automated alerting and case
-                                                                management. Identify suspicious
-                                                                patterns and activities instantly
-                                                                with AI-powered anomaly detection.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Real-time
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            AI Detection
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Case Management
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Fraud Detection & Alert Systems"
+                                                description="Real-time fraud detection with automated alerting and case management. Identify suspicious patterns and activities instantly with AI-powered anomaly detection."
+                                                imageSrc="/services/ai-automation/document-processing/fraud-detection-alerts.png"
+                                                imageAlt="Fraud Detection Alerts"
+                                                icon={Shield}
+                                                tags={[
+                                                    "Real-time",
+                                                    "AI Detection",
+                                                    "Case Management",
+                                                ]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/ai-automation/document-processing/invoice-processing.png"
-                                                        alt="Invoice Processing"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <Receipt className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Automated Invoice & Receipt
-                                                                Processing
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Extract and process invoice data
-                                                                automatically with high accuracy.
-                                                                OCR technology and AI extract key
-                                                                information from invoices and
-                                                                receipts for seamless accounting
-                                                                integration.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            OCR
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Automated
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            High Accuracy
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Automated Invoice & Receipt Processing"
+                                                description="Extract and process invoice data automatically with high accuracy. OCR technology and AI extract key information from invoices and receipts for seamless accounting integration."
+                                                imageSrc="/services/ai-automation/document-processing/invoice-processing.png"
+                                                imageAlt="Invoice Processing"
+                                                icon={Receipt}
+                                                tags={["OCR", "Automated", "High Accuracy"]}
+                                            />
 
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/ai-automation/document-processing/loan-document-analysis.png"
-                                                        alt="Loan Document Analysis"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <FileCheck className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Loan Document Analysis & Extraction
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Automated extraction of key
-                                                                information from loan applications
-                                                                and supporting documents. Streamline
-                                                                loan processing with intelligent
-                                                                document understanding and data
-                                                                extraction.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Intelligent
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Extraction
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Streamlined
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Loan Document Analysis & Extraction"
+                                                description="Automated extraction of key information from loan applications and supporting documents. Streamline loan processing with intelligent document understanding and data extraction."
+                                                imageSrc="/services/ai-automation/document-processing/loan-document-analysis.png"
+                                                imageAlt="Loan Document Analysis"
+                                                icon={FileCheck}
+                                                tags={["Intelligent", "Extraction", "Streamlined"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
@@ -288,45 +148,14 @@ export default function AIAutomationPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
-                                                <div className="aspect-video relative bg-muted">
-                                                    <img
-                                                        src="/services/ai-automation/fraud-detection/financial-report-automation.png"
-                                                        alt="Financial Report Automation"
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                </div>
-                                                <div className="p-5 space-y-3">
-                                                    <div className="flex items-start gap-2">
-                                                        <BarChart3 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                                                        <div>
-                                                            <h4 className="font-semibold text-base mb-1">
-                                                                Financial Report Generation
-                                                                Automation
-                                                            </h4>
-                                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                                Automatically generate comprehensive
-                                                                financial reports on schedule or
-                                                                on-demand. Streamline reporting
-                                                                workflows with intelligent
-                                                                automation that ensures accuracy and
-                                                                consistency.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex flex-wrap gap-2 pt-2">
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Automated
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            Scheduled
-                                                        </span>
-                                                        <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                                                            On-demand
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <SpecificSolutionCard
+                                                title="Financial Report Generation Automation"
+                                                description="Automatically generate comprehensive financial reports on schedule or on-demand. Streamline reporting workflows with intelligent automation that ensures accuracy and consistency."
+                                                imageSrc="/services/ai-automation/fraud-detection/financial-report-automation.png"
+                                                imageAlt="Financial Report Automation"
+                                                icon={BarChart3}
+                                                tags={["Automated", "Scheduled", "On-demand"]}
+                                            />
                                         </div>
                                     </div>
                                 </CardContent>
