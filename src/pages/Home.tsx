@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo, useCallback } from "react"
 import { Link } from "react-router-dom"
 import { Button } from "@mui/material"
 import {
@@ -15,73 +15,102 @@ import {
     Zap,
 } from "lucide-react"
 import Card from "../components/common/Card"
-import Lottie from "lottie-react"
-import businessMeetingAnimation from "../../public/home/hero/Business Meeting Animation.json"
+import DynamicMedia from "../components/common/DynamicMedia"
+import { useSettings } from "../context/SettingsContext"
+import { type SettingsMedia } from "../api/settings"
 
 const Home = () => {
-    const heroServices = [
-        {
-            badge: "Financial Services",
-            title: "Transform Financial Operations",
-            subtitle: "Through Advanced",
-            highlight: "Risk Analytics",
-            description:
-                "Leverage advanced credit risk management, fraud detection, and operational risk solutions to transform your data into actionable business intelligence",
-            icon: BarChart3,
-            // image: "/home/hero/financial-risk-analytics-dashboard-network.jpg",
-            lottie: businessMeetingAnimation,
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) {
+                console.warn("Images list not found in settings")
+                return undefined
+            }
+
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+
+            if (found) {
+                return found.attach_file
+            }
+
+            return undefined
         },
-        {
-            badge: "Enterprise Solution",
-            title: "Streamline Business Operations",
-            subtitle: "With Custom",
-            highlight: "ERP & CRM Systems",
-            description:
-                "Implement tailored ERP, CRM, and accounting solutions that integrate seamlessly with your existing infrastructure and automate critical workflows",
-            icon: Cog,
-            image: "/home/hero/enterprise-software-dashboard-modern.jpg",
-        },
-        {
-            badge: "AI & Automation",
-            title: "Accelerate Innovation",
-            subtitle: "Using",
-            highlight: "AI-Powered Solutions",
-            description:
-                "Deploy intelligent document processing, predictive analytics, and automated workflows to reduce manual effort and drive operational excellence",
-            icon: Sparkles,
-            image: "/home/hero/ai-automation-neural-network-visualization.jpg",
-        },
-        {
-            badge: "Data Analytics",
-            title: "Transforming Industries",
-            subtitle: "Through",
-            highlight: "Data-Driven Insights",
-            description:
-                "Leverage advanced analytics and machine learning to transform your data into actionable business intelligence",
-            icon: Database,
-            image: "/home/hero/image.png",
-        },
-        {
-            badge: "Cloud Services",
-            title: "Scale Your Infrastructure",
-            subtitle: "With",
-            highlight: "Multi-Cloud Excellence",
-            description:
-                "Migrate and manage your applications across AWS, Azure, and GCP with optimized performance, security, and cost efficiency",
-            icon: Cloud,
-            image: "/home/hero/cloud-infrastructure-architecture.png",
-        },
-        {
-            badge: "Digital Solutions",
-            title: "Build Modern Experiences",
-            subtitle: "Through",
-            highlight: "Custom Development",
-            description:
-                "Create progressive web apps, RESTful APIs, and enterprise portals using cutting-edge technologies like React, Angular, and Node.js",
-            icon: Monitor,
-            image: "/home/hero/modern-web-application-responsive-design.jpg",
-        },
-    ]
+        [settings],
+    )
+
+    const heroServices = useMemo(
+        () => [
+            {
+                badge: "Financial Services",
+                title: "Transform Financial Operations",
+                subtitle: "Through Advanced",
+                highlight: "Risk Analytics",
+                description:
+                    "Leverage advanced credit risk management, fraud detection, and operational risk solutions to transform your data into actionable business intelligence",
+                icon: BarChart3,
+                // image: "/home/hero/financial-risk-analytics-dashboard-network.jpg",
+                image: getDynamicImage("Home Page", "Block 1", "Image 1"),
+            },
+            {
+                badge: "Enterprise Solution",
+                title: "Streamline Business Operations",
+                subtitle: "With Custom",
+                highlight: "ERP & CRM Systems",
+                description:
+                    "Implement tailored ERP, CRM, and accounting solutions that integrate seamlessly with your existing infrastructure and automate critical workflows",
+                icon: Cog,
+                image: getDynamicImage("Home Page", "Block 1", "Image 2"),
+            },
+            {
+                badge: "AI & Automation",
+                title: "Accelerate Innovation",
+                subtitle: "Using",
+                highlight: "AI-Powered Solutions",
+                description:
+                    "Deploy intelligent document processing, predictive analytics, and automated workflows to reduce manual effort and drive operational excellence",
+                icon: Sparkles,
+                image: getDynamicImage("Home Page", "Block 1", "Image 3"),
+            },
+            {
+                badge: "Data Analytics",
+                title: "Transforming Industries",
+                subtitle: "Through",
+                highlight: "Data-Driven Insights",
+                description:
+                    "Leverage advanced analytics and machine learning to transform your data into actionable business intelligence",
+                icon: Database,
+                image: getDynamicImage("Home Page", "Block 1", "Image 4"),
+            },
+            {
+                badge: "Cloud Services",
+                title: "Scale Your Infrastructure",
+                subtitle: "With",
+                highlight: "Multi-Cloud Excellence",
+                description:
+                    "Migrate and manage your applications across AWS, Azure, and GCP with optimized performance, security, and cost efficiency",
+                icon: Cloud,
+                image: getDynamicImage("Home Page", "Block 1", "Image 5"),
+            },
+            {
+                badge: "Digital Solutions",
+                title: "Build Modern Experiences",
+                subtitle: "Through",
+                highlight: "Custom Development",
+                description:
+                    "Create progressive web apps, RESTful APIs, and enterprise portals using cutting-edge technologies like React, Angular, and Node.js",
+                icon: Monitor,
+                image: getDynamicImage("Home Page", "Block 1", "Image 6"),
+            },
+        ],
+        [getDynamicImage],
+    )
 
     const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -93,74 +122,85 @@ const Home = () => {
         return () => clearInterval(interval)
     }, [heroServices.length])
 
-    const services = [
-        {
-            title: "Financial Services",
-            description:
-                "Advanced credit risk management, fraud detection, and AI-powered financial analytics to protect and optimize your operations.",
-            icon: BarChart3,
-            href: "/services/financial-services",
-            image: "/home/hero/financial-risk-analytics-dashboard-network.jpg",
-            features: [
-                "Credit Risk Assessment",
-                "Fraud Detection AI",
-                "Financial Reporting Automation",
-            ],
-        },
-        {
-            title: "Enterprise Solution",
-            description:
-                "Streamline operations with comprehensive ERP solutions and enterprise system integration powered by intelligent automation.",
-            icon: Cog,
-            href: "/services/enterprise-solution",
-            image: "/home/hero/enterprise-software-dashboard-modern.jpg",
-            features: ["Custom ERP Development", "CRM Integration", "Business Process Automation"],
-        },
-        {
-            title: "AI & Automation",
-            description:
-                "Harness the power of artificial intelligence and machine learning to automate processes and gain predictive insights.",
-            icon: Sparkles,
-            href: "/services/ai-automation",
-            image: "/home/hero/ai-automation-neural-network-visualization.jpg",
-            features: [
-                "Intelligent Document Processing",
-                "Predictive Risk Models",
-                "Automated Workflows",
-            ],
-        },
-        {
-            title: "Data Analytics",
-            description:
-                "Transform raw data into actionable insights with advanced analytics and business intelligence solutions.",
-            icon: Database,
-            href: "/services/data-analytics",
-            image: "/home/hero/image.png",
-            features: [
-                "Real-time BI Dashboards",
-                "ETL Pipeline Development",
-                "Predictive Analytics",
-            ],
-        },
-        {
-            title: "Cloud Services",
-            description:
-                "Migrate and manage your infrastructure across AWS, Azure, and GCP with optimized performance and security.",
-            icon: Cloud,
-            href: "/services/cloud-services",
-            image: "/home/hero/cloud-infrastructure-architecture.png",
-            features: ["Multi-Cloud Migration", "Infrastructure Management", "Cost Optimization"],
-        },
-        {
-            title: "Digital Solutions",
-            description:
-                "Build modern, responsive web applications and APIs using cutting-edge technologies and best practices.",
-            icon: Monitor,
-            href: "/services/digital-solutions",
-            image: "/home/hero/modern-web-application-responsive-design.jpg",
-            features: ["Progressive Web Apps", "RESTful API Development", "Enterprise Portals"],
-        },
-    ]
+    const services = useMemo(
+        () => [
+            {
+                title: "Financial Services",
+                description:
+                    "Advanced credit risk management, fraud detection, and AI-powered financial analytics to protect and optimize your operations.",
+                icon: BarChart3,
+                href: "/services/financial-services",
+                image: getDynamicImage("Home Page", "Block 2", "Image 1"),
+                features: [
+                    "Credit Risk Assessment",
+                    "Fraud Detection AI",
+                    "Financial Reporting Automation",
+                ],
+            },
+            {
+                title: "Enterprise Solution",
+                description:
+                    "Streamline operations with comprehensive ERP solutions and enterprise system integration powered by intelligent automation.",
+                icon: Cog,
+                href: "/services/enterprise-solution",
+                image: getDynamicImage("Home Page", "Block 2", "Image 2"),
+                features: [
+                    "Custom ERP Development",
+                    "CRM Integration",
+                    "Business Process Automation",
+                ],
+            },
+            {
+                title: "AI & Automation",
+                description:
+                    "Harness the power of artificial intelligence and machine learning to automate processes and gain predictive insights.",
+                icon: Sparkles,
+                href: "/services/ai-automation",
+                image: getDynamicImage("Home Page", "Block 2", "Image 3"),
+                features: [
+                    "Intelligent Document Processing",
+                    "Predictive Risk Models",
+                    "Automated Workflows",
+                ],
+            },
+            {
+                title: "Data Analytics",
+                description:
+                    "Transform raw data into actionable insights with advanced analytics and business intelligence solutions.",
+                icon: Database,
+                href: "/services/data-analytics",
+                image: getDynamicImage("Home Page", "Block 2", "Image 4"),
+                features: [
+                    "Real-time BI Dashboards",
+                    "ETL Pipeline Development",
+                    "Predictive Analytics",
+                ],
+            },
+            {
+                title: "Cloud Services",
+                description:
+                    "Migrate and manage your infrastructure across AWS, Azure, and GCP with optimized performance and security.",
+                icon: Cloud,
+                href: "/services/cloud-services",
+                image: getDynamicImage("Home Page", "Block 2", "Image 5"),
+                features: [
+                    "Multi-Cloud Migration",
+                    "Infrastructure Management",
+                    "Cost Optimization",
+                ],
+            },
+            {
+                title: "Digital Solutions",
+                description:
+                    "Build modern, responsive web applications and APIs using cutting-edge technologies and best practices.",
+                icon: Monitor,
+                href: "/services/digital-solutions",
+                image: getDynamicImage("Home Page", "Block 2", "Image 6"),
+                features: ["Progressive Web Apps", "RESTful API Development", "Enterprise Portals"],
+            },
+        ],
+        [getDynamicImage],
+    )
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -211,25 +251,11 @@ const Home = () => {
                         {/* Right Image/Animation */}
                         <div className="relative">
                             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800">
-                                {heroServices[currentSlide].lottie ? (
-                                    <div className="w-full h-full bg-slate-800 flex items-center justify-center p-4">
-                                        <Lottie
-                                            animationData={heroServices[currentSlide].lottie}
-                                            loop={true}
-                                            className="w-full h-full"
-                                        />
-                                    </div>
-                                ) : (
-                                    <img
-                                        src={heroServices[currentSlide].image}
-                                        alt={heroServices[currentSlide].title}
-                                        className="w-full h-full object-contain bg-slate-800"
-                                        onError={(e) => {
-                                            ;(e.target as HTMLImageElement).src =
-                                                "https://placehold.co/600x400?text=Placeholder"
-                                        }}
-                                    />
-                                )}
+                                <DynamicMedia
+                                    src={heroServices[currentSlide].image}
+                                    alt={heroServices[currentSlide].title}
+                                    className="w-full h-full object-contain bg-slate-800"
+                                />
                             </div>
                         </div>
                     </div>
@@ -260,14 +286,10 @@ const Home = () => {
                                 >
                                     {/* Hero Image */}
                                     <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-500/10 to-purple-500/10">
-                                        <img
+                                        <DynamicMedia
                                             src={service.image}
                                             alt={service.title}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                            onError={(e) => {
-                                                ;(e.target as HTMLImageElement).src =
-                                                    "https://placehold.co/600x400?text=Placeholder"
-                                            }}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent" />
                                         <div className="absolute bottom-4 left-4">

@@ -1,10 +1,18 @@
 import client from "./client"
 
+export interface SettingsMedia {
+    page_reference: string
+    block_no: string
+    image_no: string
+    attach_file: string
+}
+
 export interface DigitalInsightsSettings {
     company_email: string
     company_mobile: string
     company_add_line_1: string
     company_add_line_2: string
+    media_list?: SettingsMedia[]
 }
 
 export interface SettingsResponse {
