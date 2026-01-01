@@ -5,9 +5,27 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "../../compo
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import { useSettings } from "../../context/SettingsContext"
+import { useCallback } from "react"
+import type { SettingsMedia } from "../../api/settings"
 
 export default function DataAnalyticsPage() {
     const navigate = useNavigate()
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) return undefined
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+            return found ? found.attach_file : undefined
+        },
+        [settings],
+    )
     return (
         <div className="min-h-screen flex flex-col">
             <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
@@ -57,7 +75,11 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Automated ETL Pipeline Development"
                                                 description="Design and implement automated ETL processes to extract, transform, and load data efficiently. Build scalable pipelines that handle large volumes of data with error handling, monitoring, and automated scheduling."
-                                                imageSrc="/services/data-analytics/data-engineering/automated-etl-pipeline.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 1",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Automated ETL Pipeline"
                                                 icon={Database}
                                                 tags={["Automated", "Scalable", "Monitoring"]}
@@ -66,7 +88,11 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Real-time Data Integration"
                                                 description="Connect multiple data sources with real-time synchronization for up-to-date insights. Stream processing capabilities ensure data is always current and available for immediate analysis."
-                                                imageSrc="/services/data-analytics/data-engineering/realtime-data-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 1",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Real-time Data Integration"
                                                 icon={Zap}
                                                 tags={["Real-time", "Streaming", "Multi-source"]}
@@ -75,9 +101,13 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Financial Data Warehousing"
                                                 description="Centralized data warehouse solutions optimized for financial analysis and reporting. Enterprise-grade architecture with data governance, security, and compliance built-in."
-                                                imageSrc="/services/data-analytics/data-engineering/Financial Data Warehousing.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 1",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="Financial Data Warehousing"
-                                                icon={Warehouse}
+                                                icon={Database}
                                                 tags={["Centralized", "Secure", "Optimized"]}
                                             />
                                         </div>
@@ -104,7 +134,11 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Custom BI Dashboards (Power BI, Tableau)"
                                                 description="Interactive dashboards tailored to your KPIs with drill-down capabilities. Create stunning visualizations that tell your data story and enable data-driven decision making across your organization."
-                                                imageSrc="/services/data-analytics/business-intelligence/Custom BI Dashboards .jpg"
+                                                imageSrc={  getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 2",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Custom BI Dashboards"
                                                 icon={BarChart3}
                                                 tags={["Interactive", "Custom KPIs", "Drill-down"]}
@@ -113,7 +147,11 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Financial KPI Visualization"
                                                 description="Track and visualize key financial metrics with real-time performance indicators. Monitor revenue, expenses, profitability, and other critical financial metrics at a glance."
-                                                imageSrc="/services/data-analytics/business-intelligence/Financial KPI Visualization2.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 2",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Financial KPI Visualization"
                                                 icon={TrendingUp}
                                                 tags={[
@@ -146,7 +184,11 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Sales & Revenue Analytics"
                                                 description="Comprehensive sales analysis with revenue forecasting and trend identification. Predictive models help anticipate future sales patterns and optimize revenue strategies."
-                                                imageSrc="/services/data-analytics/advanced-analytics/Sales & Revenue Analytics.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 3",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Sales & Revenue Analytics"
                                                 icon={TrendingUp}
                                                 tags={[
@@ -159,7 +201,11 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Customer Behavior Analysis"
                                                 description="Deep insights into customer patterns, preferences, and lifetime value. Understand what drives customer decisions and optimize engagement strategies."
-                                                imageSrc="/services/data-analytics/advanced-analytics/Customer Behavior Analysis.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 3",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Customer Behavior Analysis"
                                                 icon={Users}
                                                 tags={[
@@ -172,7 +218,11 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Customer Analytics Report"
                                                 description="Detailed customer segmentation and behavior reports for targeted marketing. Actionable insights to personalize campaigns and improve customer retention."
-                                                imageSrc="/services/data-analytics/advanced-analytics/Customer Analytics Report.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 3",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="Customer Analytics Report"
                                                 icon={BarChart3}
                                                 tags={[

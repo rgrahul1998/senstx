@@ -5,9 +5,27 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "../../compo
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import { useSettings } from "../../context/SettingsContext"
+import { useCallback } from "react"
+import type { SettingsMedia } from "../../api/settings"
 
 export default function CloudServicesPage() {
     const navigate = useNavigate()
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) return undefined
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+            return found ? found.attach_file : undefined
+        },
+        [settings],
+    )
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -58,7 +76,11 @@ export default function CloudServicesPage() {
                                             <SpecificSolutionCard
                                                 title="AWS Cloud Setup & Management"
                                                 description="Complete AWS infrastructure design, deployment, and ongoing management. Leverage the full power of Amazon Web Services for your business."
-                                                imageSrc="/services/cloud-services/infrastructure/aws-cloud-setup.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Cloud Services Page",
+                                                    "Block 1",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="AWS Cloud Setup"
                                                 icon={Server}
                                                 tags={["AWS", "Infrastructure", "Managed"]}
@@ -87,7 +109,11 @@ export default function CloudServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Google Cloud Platform (GCP) Deployment"
                                                 description="GCP infrastructure setup with best practices for scalability and security. Build on Google's powerful cloud platform."
-                                                imageSrc="/services/cloud-services/migration/gcp-deployment.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Cloud Services Page",
+                                                    "Block 2",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Google Cloud Platform Deployment"
                                                 icon={CloudUpload}
                                                 tags={["GCP", "Scalable", "Secure"]}
@@ -96,7 +122,11 @@ export default function CloudServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Microsoft Azure Infrastructure"
                                                 description="Azure cloud solutions with integration to Microsoft ecosystem. Seamless connectivity with your Microsoft tools."
-                                                imageSrc="/services/cloud-services/migration/azure-infrastructure.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Cloud Services Page",
+                                                    "Block 2",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Microsoft Azure Infrastructure"
                                                 icon={Server}
                                                 tags={["Azure", "Microsoft", "Integration"]}
@@ -125,7 +155,11 @@ export default function CloudServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Multi-cloud Infrastructure Setup"
                                                 description="Design and deploy infrastructure across multiple cloud providers. Maximize flexibility and minimize vendor lock-in."
-                                                imageSrc="/services/cloud-services/multi-cloud/multi-cloud-setup.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Cloud Services Page",
+                                                    "Block 3",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Multi-cloud Infrastructure"
                                                 icon={Network}
                                                 tags={["Multi-cloud", "Flexible", "Resilient"]}

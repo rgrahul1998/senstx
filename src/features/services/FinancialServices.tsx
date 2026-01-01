@@ -13,9 +13,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/commo
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import DynamicMedia from "../../components/common/DynamicMedia"
+import { useSettings } from "../../context/SettingsContext"
+import { useCallback } from "react"
+import type { SettingsMedia } from "../../api/settings"
 
 export default function FinancialServicesPage() {
     const navigate = useNavigate()
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) return undefined
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+            return found ? found.attach_file : undefined
+        },
+        [settings],
+    )
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -104,8 +123,12 @@ export default function FinancialServicesPage() {
                                             </ul>
                                         </div>
                                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
-                                            <img
-                                                src="/services/financial-services/credit-risk-management/credit-risk-assessment-dashboard-with-charts.jpg"
+                                            <DynamicMedia
+                                                src={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 1",
+                                                    "Image 1",
+                                                )}
                                                 alt="Credit Risk Dashboard"
                                                 className="w-full h-full object-cover"
                                             />
@@ -121,7 +144,11 @@ export default function FinancialServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Business Credit Risk Assessment & Scoring"
                                                 description="Comprehensive credit risk evaluation for businesses with real-time scoring models and predictive analytics. Our system analyzes financial statements, payment history, industry trends, and market conditions to provide accurate credit assessments. Features include automated credit limit calculations, early warning systems for deteriorating credit quality, and portfolio concentration analysis."
-                                                imageSrc="/services/financial-services/credit-risk-management/business-credit-scoring-analytics.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 1",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Business Credit Scoring"
                                                 icon={TrendingUp}
                                                 tags={[
@@ -135,7 +162,11 @@ export default function FinancialServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Personal Credit Risk Evaluation"
                                                 description="Individual creditworthiness assessment using advanced algorithms and multi-factor analysis. Our platform evaluates credit history, income stability, debt-to-income ratios, and behavioral patterns to generate comprehensive credit profiles. Includes support for alternative data sources, thin-file applicants, and continuous monitoring for credit limit adjustments."
-                                                imageSrc="/services/financial-services/credit-risk-management/personal-credit-evaluation-interface.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 1",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="Personal Credit Evaluation"
                                                 icon={Shield}
                                                 tags={[
@@ -149,7 +180,11 @@ export default function FinancialServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Loan Default Prediction Models"
                                                 description="AI-powered models to predict loan defaults and minimize financial risk exposure. Utilizing machine learning and historical data, our system identifies early warning signs of potential defaults. Features include risk segmentation, probability of default calculations, loss given default estimates, and automated alert systems for high-risk accounts requiring immediate attention."
-                                                imageSrc="/services/financial-services/credit-risk-management/ai-loan-default-prediction-model.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 1",
+                                                    "Image 4",
+                                                )}
                                                 imageAlt="Loan Default Prediction"
                                                 icon={AlertTriangle}
                                                 tags={[
@@ -163,9 +198,13 @@ export default function FinancialServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Operational Risk Mitigation"
                                                 description="Proactive risk identification and mitigation strategies to protect your operations. Our comprehensive framework monitors operational processes, identifies vulnerabilities, and recommends corrective actions. Includes incident tracking, risk heat maps, control effectiveness monitoring, and regulatory compliance checks to ensure your operations remain secure and efficient."
-                                                imageSrc="/services/financial-services/credit-risk-management/operational-risk-management-dashboard.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 1",
+                                                    "Image 5",
+                                                )}
                                                 imageAlt="Operational Risk Mitigation"
-                                                icon={Lock}
+                                                icon={AlertTriangle}
                                                 tags={[
                                                     "Proactive Monitoring",
                                                     "Risk Heat Maps",
@@ -210,8 +249,12 @@ export default function FinancialServicesPage() {
                                             </p>
                                         </div>
                                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
-                                            <img
-                                                src="/services/financial-services/operational-risk-management/operational-risk-monitoring-dashboard.jpg"
+                                            <DynamicMedia
+                                                src={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 2",
+                                                    "Image 1",
+                                                )}
                                                 alt="Risk Monitoring Dashboard"
                                                 className="w-full h-full object-cover"
                                             />
@@ -226,7 +269,11 @@ export default function FinancialServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Loan Portfolio Analytics"
                                                 description="Deep insights into your loan portfolio performance with risk concentration analysis. Track key metrics including delinquency rates, loss rates, and vintage analysis. Our platform provides drill-down capabilities to analyze performance by segment, product type, geography, and time period. Features include stress testing, scenario analysis, and what-if modeling to assess portfolio resilience under different market conditions."
-                                                imageSrc="/services/financial-services/operational-risk-management/loan-portfolio-analytics-visualization.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 2",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Loan Portfolio Analytics"
                                                 icon={BarChart}
                                                 tags={[
@@ -239,7 +286,11 @@ export default function FinancialServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Fraud Detection & Prevention"
                                                 description="Real-time fraud detection using machine learning to identify suspicious activities instantly. Our system analyzes transaction patterns, user behavior, and network relationships to detect anomalies. Features include identity verification, device fingerprinting, transaction monitoring, and automated case management for investigation workflows. Continuously updated fraud rules adapt to emerging threats."
-                                                imageSrc="/services/financial-services/operational-risk-management/fraud-detection-system-alert-interface.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 2",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="Fraud Detection"
                                                 icon={AlertTriangle}
                                                 tags={[
@@ -271,8 +322,12 @@ export default function FinancialServicesPage() {
                                 <CardContent className="space-y-8">
                                     <div className="grid md:grid-cols-2 gap-6 items-center">
                                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg order-2 md:order-1">
-                                            <img
-                                                src="/services/financial-services/financial-analytics-reporting/financial-reporting-dashboard.png"
+                                            <DynamicMedia
+                                                src={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 3",
+                                                    "Image 1",
+                                                )}
                                                 alt="Financial Reporting Dashboard"
                                                 className="w-full h-full object-cover"
                                             />
@@ -301,9 +356,13 @@ export default function FinancialServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Automated Financial Reporting"
                                                 description="Automated generation of financial statements, compliance reports, and regulatory filings. Our platform supports multiple reporting standards including GAAP, IFRS, Basel III, FINRA, and SEC filings. Features include scheduled report generation, multi-entity consolidation, intercompany eliminations, and customizable report templates with built-in validation rules."
-                                                imageSrc="/services/financial-services/financial-analytics-reporting/automated-financial-reports-generation.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 3",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Automated Financial Reporting"
-                                                icon={FileText}
+                                                icon={BarChart}
                                                 tags={[
                                                     "Automated Generation",
                                                     "Multi-Standard",
@@ -314,7 +373,11 @@ export default function FinancialServicesPage() {
                                             <SpecificSolutionCard
                                                 title="Regulatory Compliance & Audit Trail"
                                                 description="Comprehensive compliance management with automated audit trails and version control. Ensure data accuracy and regulatory compliance across all financial reporting. Track changes, maintain historical records, and generate compliance reports for regulatory bodies with complete transparency and accountability."
-                                                imageSrc="/services/financial-services/financial-analytics-reporting/regulatory-compliance-dashboard.jpg"
+                                                imageSrc={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 3",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="Regulatory Compliance"
                                                 icon={Shield}
                                                 tags={[

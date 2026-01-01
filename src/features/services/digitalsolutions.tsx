@@ -9,9 +9,27 @@ import Card, {
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import { useSettings } from "../../context/SettingsContext"
+import { useCallback } from "react"
+import type { SettingsMedia } from "../../api/settings"
 
 export default function DigitalSolutionsPage() {
     const navigate = useNavigate()
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) return undefined
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+            return found ? found.attach_file : undefined
+        },
+        [settings],
+    )
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -62,7 +80,11 @@ export default function DigitalSolutionsPage() {
                                             <SpecificSolutionCard
                                                 title="Progressive Web Apps (PWA)"
                                                 description="Fast, reliable, and engaging web applications that work offline and feel like native apps. Modern web technology at its best."
-                                                imageSrc="/services/digital-solutions/web-apps/progressive-web-apps.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Digital Solutions Page",
+                                                    "Block 1",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Progressive Web Apps"
                                                 icon={Smartphone}
                                                 tags={["PWA", "Offline-ready", "Fast"]}
@@ -71,7 +93,11 @@ export default function DigitalSolutionsPage() {
                                             <SpecificSolutionCard
                                                 title="RESTful API Development"
                                                 description="Secure and scalable REST APIs for seamless integration between systems. Build robust API infrastructure."
-                                                imageSrc="/services/digital-solutions/web-apps/restful-api.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Digital Solutions Page",
+                                                    "Block 1",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="RESTful API Development"
                                                 icon={Code2}
                                                 tags={["REST API", "Secure", "Scalable"]}
@@ -80,7 +106,11 @@ export default function DigitalSolutionsPage() {
                                             <SpecificSolutionCard
                                                 title="Frontend Development (React, Angular, Vue)"
                                                 description="Modern, responsive frontends built with the latest JavaScript frameworks. Beautiful and performant user interfaces."
-                                                imageSrc="/services/digital-solutions/web-apps/frontend-development.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Digital Solutions Page",
+                                                    "Block 1",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="Frontend Development"
                                                 icon={Layout}
                                                 tags={["React", "Angular", "Vue"]}
@@ -89,7 +119,11 @@ export default function DigitalSolutionsPage() {
                                             <SpecificSolutionCard
                                                 title="Backend Development (Node.js, Python, .NET)"
                                                 description="Robust backend systems with your preferred technology stack. Powerful server-side solutions."
-                                                imageSrc="/services/digital-solutions/web-apps/backend-development.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Digital Solutions Page",
+                                                    "Block 1",
+                                                    "Image 4",
+                                                )}
                                                 imageAlt="Backend Development"
                                                 icon={Server}
                                                 tags={["Node.js", "Python", ".NET"]}
@@ -118,7 +152,11 @@ export default function DigitalSolutionsPage() {
                                             <SpecificSolutionCard
                                                 title="Enterprise Portal Dashboard"
                                                 description="Centralized portals for internal teams with role-based access and workflows. Streamline collaboration and operations."
-                                                imageSrc="/services/digital-solutions/portals/enterprise-portal.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Digital Solutions Page",
+                                                    "Block 2",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Enterprise Portal Dashboard"
                                                 icon={Layout}
                                                 tags={["Portal", "Role-based", "Centralized"]}
@@ -147,7 +185,11 @@ export default function DigitalSolutionsPage() {
                                             <SpecificSolutionCard
                                                 title="API Integration Diagram"
                                                 description="Design and document API architectures for complex system integrations. Clear blueprints for seamless connectivity."
-                                                imageSrc="/services/digital-solutions/api/api-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Digital Solutions Page",
+                                                    "Block 3",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="API Integration Diagram"
                                                 icon={Code2}
                                                 tags={[

@@ -5,9 +5,27 @@ import { Button } from "../../components/common/Button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import { useSettings } from "../../context/SettingsContext"
+import { useCallback } from "react"
+import type { SettingsMedia } from "../../api/settings"
 
 export default function AIAutomationPage() {
     const navigate = useNavigate()
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) return undefined
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+            return found ? found.attach_file : undefined
+        },
+        [settings],
+    )
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -58,7 +76,11 @@ export default function AIAutomationPage() {
                                             <SpecificSolutionCard
                                                 title="Credit Risk Prediction Models"
                                                 description="Machine learning models to predict credit defaults and assess borrower risk. Advanced algorithms analyze historical data and patterns to provide accurate risk predictions and early warning signals."
-                                                imageSrc="/services/ai-automation/financial-ai-risk/credit-risk-prediction.png"
+                                                imageSrc={getDynamicImage(
+                                                    "AI Automation Page",
+                                                    "Block 1",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Credit Risk Prediction"
                                                 icon={Brain}
                                                 tags={[
@@ -71,7 +93,11 @@ export default function AIAutomationPage() {
                                             <SpecificSolutionCard
                                                 title="Risk Scoring & Monitoring Automation"
                                                 description="Automated risk scoring systems with real-time monitoring and alerts. Continuous assessment of risk levels with instant notifications for threshold breaches and anomalies."
-                                                imageSrc="/services/ai-automation/financial-ai-risk/risk-scoring-automation.png"
+                                                imageSrc={getDynamicImage(
+                                                    "AI Automation Page",
+                                                    "Block 1",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Risk Scoring Automation"
                                                 icon={Shield}
                                                 tags={["Automated", "Real-time", "Alerts"]}
@@ -100,7 +126,11 @@ export default function AIAutomationPage() {
                                             <SpecificSolutionCard
                                                 title="Fraud Detection & Alert Systems"
                                                 description="Real-time fraud detection with automated alerting and case management. Identify suspicious patterns and activities instantly with AI-powered anomaly detection."
-                                                imageSrc="/services/ai-automation/document-processing/fraud-detection-alerts.png"
+                                                imageSrc={getDynamicImage(
+                                                    "AI Automation Page",
+                                                    "Block 2",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Fraud Detection Alerts"
                                                 icon={Shield}
                                                 tags={[
@@ -113,7 +143,11 @@ export default function AIAutomationPage() {
                                             <SpecificSolutionCard
                                                 title="Automated Invoice & Receipt Processing"
                                                 description="Extract and process invoice data automatically with high accuracy. OCR technology and AI extract key information from invoices and receipts for seamless accounting integration."
-                                                imageSrc="/services/ai-automation/document-processing/invoice-processing.png"
+                                                imageSrc={getDynamicImage(
+                                                    "AI Automation Page",
+                                                    "Block 2",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Invoice Processing"
                                                 icon={Receipt}
                                                 tags={["OCR", "Automated", "High Accuracy"]}
@@ -122,7 +156,11 @@ export default function AIAutomationPage() {
                                             <SpecificSolutionCard
                                                 title="Loan Document Analysis & Extraction"
                                                 description="Automated extraction of key information from loan applications and supporting documents. Streamline loan processing with intelligent document understanding and data extraction."
-                                                imageSrc="/services/ai-automation/document-processing/loan-document-analysis.png"
+                                                imageSrc={getDynamicImage(
+                                                    "AI Automation Page",
+                                                    "Block 2",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="Loan Document Analysis"
                                                 icon={FileCheck}
                                                 tags={["Intelligent", "Extraction", "Streamlined"]}
@@ -151,7 +189,11 @@ export default function AIAutomationPage() {
                                             <SpecificSolutionCard
                                                 title="Financial Report Generation Automation"
                                                 description="Automatically generate comprehensive financial reports on schedule or on-demand. Streamline reporting workflows with intelligent automation that ensures accuracy and consistency."
-                                                imageSrc="/services/ai-automation/fraud-detection/financial-report-automation.png"
+                                                imageSrc={getDynamicImage(
+                                                    "AI Automation Page",
+                                                    "Block 3",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Financial Report Automation"
                                                 icon={BarChart3}
                                                 tags={["Automated", "Scheduled", "On-demand"]}

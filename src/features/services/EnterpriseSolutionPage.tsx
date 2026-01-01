@@ -26,9 +26,27 @@ import Card, {
 } from "../../components/common/Card"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import { useSettings } from "../../context/SettingsContext"
+import { useCallback } from "react"
+import type { SettingsMedia } from "../../api/settings"
 
 export default function EnterpriseSolutionPage() {
     const navigate = useNavigate()
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) return undefined
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+            return found ? found.attach_file : undefined
+        },
+        [settings],
+    )
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -82,7 +100,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="Custom ERP Development & Implementation"
                                                 description="Tailored ERP systems designed to match your unique business processes and workflows. Build comprehensive solutions that integrate all aspects of your business operations."
-                                                imageSrc="/services/enterprise-solutions/erp/custom-erp-development.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 1",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Custom ERP Development"
                                                 icon={Settings}
                                                 tags={["Custom Built", "Tailored", "Integrated"]}
@@ -91,7 +113,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="Dynamics 365 Integration"
                                                 description="Seamless Microsoft Dynamics 365 implementation and customization for enterprise needs. Leverage the power of Microsoft's cloud-based ERP platform."
-                                                imageSrc="/services/enterprise-solutions/erp/dynamics-365-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 1",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="Dynamics 365 Integration"
                                                 icon={Cloud}
                                                 tags={["Microsoft", "Cloud-based", "Enterprise"]}
@@ -100,7 +126,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="ERP Module Customization"
                                                 description="Custom modules to extend your ERP capabilities and adapt to changing business requirements. Add new functionality without disrupting existing operations."
-                                                imageSrc="/services/enterprise-solutions/erp/erp-module-customization.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 1",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="ERP Module Customization"
                                                 icon={Layers}
                                                 tags={["Modular", "Extensible", "Flexible"]}
@@ -109,7 +139,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="Multi-system Workflow Automation"
                                                 description="Automate complex workflows across multiple systems for improved efficiency. Streamline processes and reduce manual intervention."
-                                                imageSrc="/services/enterprise-solutions/erp/workflow-automation.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 1",
+                                                    "Image 4",
+                                                )}
                                                 imageAlt="Workflow Automation"
                                                 icon={Workflow}
                                                 tags={["Automated", "Multi-system", "Efficient"]}
@@ -138,7 +172,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="Salesforce Integration"
                                                 description="Complete Salesforce setup, customization, and integration with your existing systems. Maximize your CRM investment with tailored solutions."
-                                                imageSrc="/services/enterprise-solutions/crm/salesforce-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 2",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Salesforce Integration"
                                                 icon={Building2}
                                                 tags={[
@@ -151,7 +189,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="HubSpot Integration"
                                                 description="HubSpot CRM implementation with marketing automation and sales pipeline management. Streamline your customer engagement."
-                                                imageSrc="/services/enterprise-solutions/crm/hubspot-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 2",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="HubSpot Integration"
                                                 icon={Users}
                                                 tags={["HubSpot", "Marketing", "Sales Pipeline"]}
@@ -160,9 +202,13 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="Zoho CRM Integration"
                                                 description="Affordable and powerful Zoho CRM solutions for growing businesses. Scale your customer relationships efficiently."
-                                                imageSrc="/services/enterprise-solutions/crm/zoho-crm-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 2",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="Zoho CRM Integration"
-                                                icon={Phone}
+                                                icon={Building2}
                                                 tags={["Zoho", "Affordable", "Scalable"]}
                                             />
                                         </div>
@@ -189,7 +235,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="Xero Integration"
                                                 description="Cloud-based accounting with Xero for real-time financial visibility. Manage your finances from anywhere with confidence."
-                                                imageSrc="/services/enterprise-solutions/accounting/xero-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 3",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Xero Integration"
                                                 icon={DollarSign}
                                                 tags={["Cloud-based", "Real-time", "Xero"]}
@@ -198,7 +248,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="QuickBooks Integration"
                                                 description="QuickBooks setup and customization for small to medium businesses. Simplify your accounting processes."
-                                                imageSrc="/services/enterprise-solutions/accounting/quickbooks-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 3",
+                                                    "Image 2",
+                                                )}
                                                 imageAlt="QuickBooks Integration"
                                                 icon={Calculator}
                                                 tags={["QuickBooks", "SMB", "Customizable"]}
@@ -207,16 +261,24 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="NetSuite Integration"
                                                 description="Enterprise-grade NetSuite ERP and financial management solutions. Comprehensive platform for large organizations."
-                                                imageSrc="/services/enterprise-solutions/accounting/netsuite-integration.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 3",
+                                                    "Image 3",
+                                                )}
                                                 imageAlt="NetSuite Integration"
-                                                icon={Cloud}
+                                                icon={DollarSign}
                                                 tags={["NetSuite", "Enterprise", "ERP"]}
                                             />
 
                                             <SpecificSolutionCard
                                                 title="Automated Invoice Processing"
                                                 description="Streamline invoice processing with automated data extraction and approval workflows. Reduce manual work and errors."
-                                                imageSrc="/services/enterprise-solutions/accounting/automated-invoice-processing.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 3",
+                                                    "Image 4",
+                                                )}
                                                 imageAlt="Automated Invoice Processing"
                                                 icon={FileSpreadsheet}
                                                 tags={["Automated", "Workflow", "Efficient"]}
@@ -225,7 +287,11 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="Real-time Data Synchronization"
                                                 description="Keep all your financial systems in sync with real-time data integration. Ensure data consistency across platforms."
-                                                imageSrc="/services/enterprise-solutions/accounting/realtime-data-sync.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 3",
+                                                    "Image 5",
+                                                )}
                                                 imageAlt="Real-time Data Synchronization"
                                                 icon={RefreshCw}
                                                 tags={["Real-time", "Sync", "Integration"]}
@@ -254,9 +320,13 @@ export default function EnterpriseSolutionPage() {
                                             <SpecificSolutionCard
                                                 title="Microsoft Business Central"
                                                 description="Complete business management solution connecting sales, service, finance, and operations. All-in-one Microsoft platform for growing businesses."
-                                                imageSrc="/services/enterprise-solutions/ms-business/business-central.png"
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 4",
+                                                    "Image 1",
+                                                )}
                                                 imageAlt="Microsoft Business Central"
-                                                icon={Cloud}
+                                                icon={DollarSign}
                                                 tags={["Microsoft", "All-in-one", "Cloud"]}
                                             />
                                         </div>

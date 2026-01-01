@@ -1,10 +1,11 @@
 import React from "react"
 import type { LucideIcon } from "lucide-react"
+import DynamicMedia from "../common/DynamicMedia"
 
 interface SpecificSolutionCardProps {
     title: string
     description: string
-    imageSrc: string
+    imageSrc: string | undefined
     imageAlt: string
     icon: LucideIcon
     tags: string[]
@@ -21,7 +22,11 @@ const SpecificSolutionCard: React.FC<SpecificSolutionCardProps> = ({
     return (
         <div className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow">
             <div className="aspect-video relative bg-muted">
-                <img src={imageSrc} alt={imageAlt} className="w-full h-full object-cover" />
+                <DynamicMedia
+                    src={imageSrc}
+                    alt={imageAlt}
+                    className="w-full h-full object-cover"
+                />
             </div>
             <div className="p-5 space-y-3">
                 <div className="flex items-start gap-2">
