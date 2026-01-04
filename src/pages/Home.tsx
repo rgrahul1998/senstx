@@ -24,8 +24,8 @@ const Home = () => {
 
     const getDynamicImage = useCallback(
         (page: string, block: string, imageNo: string) => {
+            // Return undefined if settings haven't loaded yet or media_list is missing
             if (!settings?.media_list) {
-                console.warn("Images list not found in settings")
                 return undefined
             }
 

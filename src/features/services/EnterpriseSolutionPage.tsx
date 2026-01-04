@@ -9,7 +9,6 @@ import {
     Workflow,
     Users,
     Building2,
-    Phone,
     DollarSign,
     Calculator,
     FileSpreadsheet,

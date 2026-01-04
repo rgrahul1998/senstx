@@ -30,6 +30,12 @@ export const SettingsProvider: React.FC<{ children: ReactNode }> = ({ children }
                 const data = await getDigitalInsightsSettings()
                 if (data) {
                     setSettings(data)
+                    // Warn once if media_list is missing
+                    if (!data.media_list || data.media_list.length === 0) {
+                        console.warn(
+                            "Settings loaded but media_list is empty or missing. Dynamic images will not be displayed.",
+                        )
+                    }
                 }
             } catch (error) {
                 console.error("Failed to load settings:", error)

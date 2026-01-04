@@ -1,4 +1,4 @@
-import { ArrowRight, Database, Zap, Warehouse, BarChart3, TrendingUp, Users } from "lucide-react"
+import { ArrowRight, Database, Zap, BarChart3, TrendingUp, Users } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
 import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
@@ -134,7 +134,7 @@ export default function DataAnalyticsPage() {
                                             <SpecificSolutionCard
                                                 title="Custom BI Dashboards (Power BI, Tableau)"
                                                 description="Interactive dashboards tailored to your KPIs with drill-down capabilities. Create stunning visualizations that tell your data story and enable data-driven decision making across your organization."
-                                                imageSrc={  getDynamicImage(
+                                                imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
                                                     "Block 2",
                                                     "Image 1",

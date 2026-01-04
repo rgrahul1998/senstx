@@ -5,7 +5,6 @@ import {
     FileText,
     AlertTriangle,
     BarChart,
-    Lock,
 } from "lucide-react"
 import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
