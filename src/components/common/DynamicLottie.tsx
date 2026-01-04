@@ -7,8 +7,10 @@ interface DynamicLottieProps {
     className?: string
 }
 
+// Global cache for Lottie animation data to prevent redundant fetches
+const lottieCache = new Map<string, any>()
+
 const DynamicLottie: React.FC<DynamicLottieProps> = ({ url, className }) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [animationData, setAnimationData] = useState<any>(null)
     const [error, setError] = useState<boolean>(false)
 
@@ -21,15 +23,20 @@ const DynamicLottie: React.FC<DynamicLottieProps> = ({ url, className }) => {
                 }
 
                 // URL-encode the path to handle spaces and special characters
-                // Split by '/' to encode only the filename parts, not the slashes
                 const urlParts = processedUrl.split("/")
                 const encodedParts = urlParts.map((part, index) =>
-                    // Only encode the last part (filename) if it contains spaces
                     index === urlParts.length - 1 && part.includes(" ")
                         ? encodeURIComponent(part)
                         : part,
                 )
                 const finalUrl = encodedParts.join("/")
+
+                // Check cache first
+                if (lottieCache.has(finalUrl)) {
+                    setAnimationData(lottieCache.get(finalUrl))
+                    return
+                }
+
                 const response = await fetch(finalUrl)
 
                 if (!response.ok) {
@@ -45,6 +52,10 @@ const DynamicLottie: React.FC<DynamicLottieProps> = ({ url, className }) => {
                 }
 
                 const data = await response.json()
+
+                // Store in cache
+                lottieCache.set(finalUrl, data)
+
                 setAnimationData(data)
             } catch (err) {
                 console.error("Error loading Lottie animation:", err)
