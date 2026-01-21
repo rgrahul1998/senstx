@@ -5,6 +5,7 @@ import { CardContent, CardDescription, CardHeader, CardTitle } from "../../compo
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import DynamicMedia from "../../components/common/DynamicMedia"
 import { useSettings } from "../../context/SettingsContext"
 import { useCallback } from "react"
 import type { SettingsMedia } from "../../api/settings"
@@ -31,14 +32,27 @@ export default function CloudServicesPage() {
         <div className="min-h-screen flex flex-col">
             <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
-                            Cloud Services
-                        </h1>
-                        <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Migrate, manage, and optimize your cloud infrastructure across AWS,
-                            Google Cloud, and Microsoft Azure.
-                        </p>
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="max-w-xl">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
+                                Cloud Services
+                            </h1>
+                            <p className="text-lg text-muted-foreground leading-relaxed text-balance">
+                                Migrate, manage, and optimize your cloud infrastructure across AWS,
+                                Google Cloud, and Microsoft Azure.
+                            </p>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
+                            <DynamicMedia
+                                src={getDynamicImage(
+                                    "Cloud Services Page",
+                                    "Block 1",
+                                    "Image 1",
+                                )}
+                                alt="Cloud Services Infrastructure"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -78,12 +92,25 @@ export default function CloudServicesPage() {
                                                 description="Complete AWS infrastructure design, deployment, and ongoing management. Leverage the full power of Amazon Web Services for your business."
                                                 imageSrc={getDynamicImage(
                                                     "Cloud Services Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="AWS Cloud Setup"
                                                 icon={Server}
                                                 tags={["AWS", "Infrastructure", "Managed"]}
+                                            />
+
+                                            <SpecificSolutionCard
+                                                title="MS Cloud Setup and Management"
+                                                description="Complete Microsoft Azure infrastructure design, deployment, and ongoing management. Leverage the full power of Microsoft Azure cloud services for your business with seamless integration to Microsoft ecosystem."
+                                                imageSrc={getDynamicImage(
+                                                    "Cloud Services Page",
+                                                    "Block 2",
+                                                    "Image 2",
+                                                )}
+                                                imageAlt="MS Cloud Setup"
+                                                icon={CloudUpload}
+                                                tags={["Azure", "Microsoft", "Managed"]}
                                             />
                                         </div>
                                     </div>
@@ -111,7 +138,7 @@ export default function CloudServicesPage() {
                                                 description="GCP infrastructure setup with best practices for scalability and security. Build on Google's powerful cloud platform."
                                                 imageSrc={getDynamicImage(
                                                     "Cloud Services Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Google Cloud Platform Deployment"
@@ -124,7 +151,7 @@ export default function CloudServicesPage() {
                                                 description="Azure cloud solutions with integration to Microsoft ecosystem. Seamless connectivity with your Microsoft tools."
                                                 imageSrc={getDynamicImage(
                                                     "Cloud Services Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="Microsoft Azure Infrastructure"
@@ -157,7 +184,7 @@ export default function CloudServicesPage() {
                                                 description="Design and deploy infrastructure across multiple cloud providers. Maximize flexibility and minimize vendor lock-in."
                                                 imageSrc={getDynamicImage(
                                                     "Cloud Services Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Multi-cloud Infrastructure"

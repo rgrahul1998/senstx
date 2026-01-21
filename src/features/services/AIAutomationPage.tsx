@@ -1,10 +1,11 @@
-import { ArrowRight, Brain, Shield, Receipt, FileCheck, BarChart3 } from "lucide-react"
+import { ArrowRight, Brain, Shield, BarChart3 } from "lucide-react"
 import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
 import { Button } from "../../components/common/Button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import DynamicMedia from "../../components/common/DynamicMedia"
 import { useSettings } from "../../context/SettingsContext"
 import { useCallback } from "react"
 import type { SettingsMedia } from "../../api/settings"
@@ -31,14 +32,27 @@ export default function AIAutomationPage() {
         <div className="min-h-screen flex flex-col">
             <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
-                            AI & Automation
-                        </h1>
-                        <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Leverage artificial intelligence and automation to streamline
-                            operations, reduce costs, and improve accuracy across your business.
-                        </p>
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="max-w-xl">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
+                                AI & Automation
+                            </h1>
+                            <p className="text-lg text-muted-foreground leading-relaxed text-balance">
+                                Leverage artificial intelligence and automation to streamline
+                                operations, reduce costs, and improve accuracy across your business.
+                            </p>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
+                            <DynamicMedia
+                                src={getDynamicImage(
+                                    "AI Automation Page",
+                                    "Block 1",
+                                    "Image 1",
+                                )}
+                                alt="AI & Automation Dashboard"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -78,7 +92,7 @@ export default function AIAutomationPage() {
                                                 description="Machine learning models to predict credit defaults and assess borrower risk. Advanced algorithms analyze historical data and patterns to provide accurate risk predictions and early warning signals."
                                                 imageSrc={getDynamicImage(
                                                     "AI Automation Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Credit Risk Prediction"
@@ -95,8 +109,8 @@ export default function AIAutomationPage() {
                                                 description="Automated risk scoring systems with real-time monitoring and alerts. Continuous assessment of risk levels with instant notifications for threshold breaches and anomalies."
                                                 imageSrc={getDynamicImage(
                                                     "AI Automation Page",
-                                                    "Block 1",
-                                                    "Image 2",
+                                                    "Block 3",
+                                                    "Image 1",
                                                 )}
                                                 imageAlt="Risk Scoring Automation"
                                                 icon={Shield}
@@ -123,48 +137,7 @@ export default function AIAutomationPage() {
                                             Specific Solutions
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                            <SpecificSolutionCard
-                                                title="Fraud Detection & Alert Systems"
-                                                description="Real-time fraud detection with automated alerting and case management. Identify suspicious patterns and activities instantly with AI-powered anomaly detection."
-                                                imageSrc={getDynamicImage(
-                                                    "AI Automation Page",
-                                                    "Block 2",
-                                                    "Image 1",
-                                                )}
-                                                imageAlt="Fraud Detection Alerts"
-                                                icon={Shield}
-                                                tags={[
-                                                    "Real-time",
-                                                    "AI Detection",
-                                                    "Case Management",
-                                                ]}
-                                            />
-
-                                            <SpecificSolutionCard
-                                                title="Automated Invoice & Receipt Processing"
-                                                description="Extract and process invoice data automatically with high accuracy. OCR technology and AI extract key information from invoices and receipts for seamless accounting integration."
-                                                imageSrc={getDynamicImage(
-                                                    "AI Automation Page",
-                                                    "Block 2",
-                                                    "Image 2",
-                                                )}
-                                                imageAlt="Invoice Processing"
-                                                icon={Receipt}
-                                                tags={["OCR", "Automated", "High Accuracy"]}
-                                            />
-
-                                            <SpecificSolutionCard
-                                                title="Loan Document Analysis & Extraction"
-                                                description="Automated extraction of key information from loan applications and supporting documents. Streamline loan processing with intelligent document understanding and data extraction."
-                                                imageSrc={getDynamicImage(
-                                                    "AI Automation Page",
-                                                    "Block 2",
-                                                    "Image 3",
-                                                )}
-                                                imageAlt="Loan Document Analysis"
-                                                icon={FileCheck}
-                                                tags={["Intelligent", "Extraction", "Streamlined"]}
-                                            />
+                                            {/* Sections moved to Data Analytics page */}
                                         </div>
                                     </div>
                                 </CardContent>
@@ -191,7 +164,7 @@ export default function AIAutomationPage() {
                                                 description="Automatically generate comprehensive financial reports on schedule or on-demand. Streamline reporting workflows with intelligent automation that ensures accuracy and consistency."
                                                 imageSrc={getDynamicImage(
                                                     "AI Automation Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Financial Report Automation"

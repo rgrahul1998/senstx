@@ -1,11 +1,4 @@
-import {
-    ArrowRight,
-    Shield,
-    TrendingUp,
-    FileText,
-    AlertTriangle,
-    BarChart,
-} from "lucide-react"
+import { ArrowRight, Shield, TrendingUp, FileText, AlertTriangle, BarChart } from "lucide-react"
 import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
@@ -40,14 +33,23 @@ export default function FinancialServicesPage() {
             {/* Hero Section */}
             <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
-                            Financial Services
-                        </h1>
-                        <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Comprehensive risk management, analytics, and financial reporting
-                            solutions to protect and optimize your financial operations.
-                        </p>
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="max-w-xl">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
+                                Financial Services
+                            </h1>
+                            <p className="text-lg text-muted-foreground leading-relaxed text-balance">
+                                Comprehensive risk management, analytics, and financial reporting
+                                solutions to protect and optimize your financial operations.
+                            </p>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
+                            <DynamicMedia
+                                src={getDynamicImage("Financial Services Page", "Block 1", "Image 1")}
+                                alt="Financial Services Dashboard"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -125,7 +127,7 @@ export default function FinancialServicesPage() {
                                             <DynamicMedia
                                                 src={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 1",
                                                 )}
                                                 alt="Credit Risk Dashboard"
@@ -145,7 +147,7 @@ export default function FinancialServicesPage() {
                                                 description="Comprehensive credit risk evaluation for businesses with real-time scoring models and predictive analytics. Our system analyzes financial statements, payment history, industry trends, and market conditions to provide accurate credit assessments. Features include automated credit limit calculations, early warning systems for deteriorating credit quality, and portfolio concentration analysis."
                                                 imageSrc={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="Business Credit Scoring"
@@ -163,7 +165,7 @@ export default function FinancialServicesPage() {
                                                 description="Individual creditworthiness assessment using advanced algorithms and multi-factor analysis. Our platform evaluates credit history, income stability, debt-to-income ratios, and behavioral patterns to generate comprehensive credit profiles. Includes support for alternative data sources, thin-file applicants, and continuous monitoring for credit limit adjustments."
                                                 imageSrc={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 3",
                                                 )}
                                                 imageAlt="Personal Credit Evaluation"
@@ -181,7 +183,7 @@ export default function FinancialServicesPage() {
                                                 description="AI-powered models to predict loan defaults and minimize financial risk exposure. Utilizing machine learning and historical data, our system identifies early warning signs of potential defaults. Features include risk segmentation, probability of default calculations, loss given default estimates, and automated alert systems for high-risk accounts requiring immediate attention."
                                                 imageSrc={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 4",
                                                 )}
                                                 imageAlt="Loan Default Prediction"
@@ -199,7 +201,7 @@ export default function FinancialServicesPage() {
                                                 description="Proactive risk identification and mitigation strategies to protect your operations. Our comprehensive framework monitors operational processes, identifies vulnerabilities, and recommends corrective actions. Includes incident tracking, risk heat maps, control effectiveness monitoring, and regulatory compliance checks to ensure your operations remain secure and efficient."
                                                 imageSrc={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 5",
                                                 )}
                                                 imageAlt="Operational Risk Mitigation"
@@ -251,7 +253,7 @@ export default function FinancialServicesPage() {
                                             <DynamicMedia
                                                 src={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 1",
                                                 )}
                                                 alt="Risk Monitoring Dashboard"
@@ -270,7 +272,7 @@ export default function FinancialServicesPage() {
                                                 description="Deep insights into your loan portfolio performance with risk concentration analysis. Track key metrics including delinquency rates, loss rates, and vintage analysis. Our platform provides drill-down capabilities to analyze performance by segment, product type, geography, and time period. Features include stress testing, scenario analysis, and what-if modeling to assess portfolio resilience under different market conditions."
                                                 imageSrc={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="Loan Portfolio Analytics"
@@ -287,7 +289,7 @@ export default function FinancialServicesPage() {
                                                 description="Real-time fraud detection using machine learning to identify suspicious activities instantly. Our system analyzes transaction patterns, user behavior, and network relationships to detect anomalies. Features include identity verification, device fingerprinting, transaction monitoring, and automated case management for investigation workflows. Continuously updated fraud rules adapt to emerging threats."
                                                 imageSrc={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 3",
                                                 )}
                                                 imageAlt="Fraud Detection"
@@ -324,7 +326,7 @@ export default function FinancialServicesPage() {
                                             <DynamicMedia
                                                 src={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 1",
                                                 )}
                                                 alt="Financial Reporting Dashboard"
@@ -357,7 +359,7 @@ export default function FinancialServicesPage() {
                                                 description="Automated generation of financial statements, compliance reports, and regulatory filings. Our platform supports multiple reporting standards including GAAP, IFRS, Basel III, FINRA, and SEC filings. Features include scheduled report generation, multi-entity consolidation, intercompany eliminations, and customizable report templates with built-in validation rules."
                                                 imageSrc={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="Automated Financial Reporting"
@@ -374,7 +376,7 @@ export default function FinancialServicesPage() {
                                                 description="Comprehensive compliance management with automated audit trails and version control. Ensure data accuracy and regulatory compliance across all financial reporting. Track changes, maintain historical records, and generate compliance reports for regulatory bodies with complete transparency and accountability."
                                                 imageSrc={getDynamicImage(
                                                     "Financial Services Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 3",
                                                 )}
                                                 imageAlt="Regulatory Compliance"

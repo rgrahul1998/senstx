@@ -13,12 +13,12 @@ const services = [
       "Secure and scalable cloud infrastructure for your enterprise.",
   },
   {
-    title: "Data Analytics",
+    title: "AI & Automation",
     description:
       "Turn data into actionable insights with our analytics services.",
   },
   {
-    title: "Digital Solutions",
+    title: "Software Solutions",
     description: "Custom web and mobile application development.",
   },
   {

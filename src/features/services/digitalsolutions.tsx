@@ -1,4 +1,4 @@
-import { ArrowRight, Smartphone, Layout, Code2, Server } from "lucide-react"
+import { ArrowRight, Smartphone, Layout, Code2, Server, Brain, Workflow } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
 import Card, {
     CardContent,
@@ -37,11 +37,11 @@ export default function DigitalSolutionsPage() {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
-                            Digital Solutions
+                            Software Solutions
                         </h1>
                         <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Modern web applications, mobile solutions, and APIs built with
-                            cutting-edge technology for exceptional user experiences.
+                            Modern web applications, mobile solutions, and AI-powered software built
+                            with cutting-edge technology for exceptional user experiences.
                         </p>
                     </div>
                 </div>
@@ -57,8 +57,8 @@ export default function DigitalSolutionsPage() {
                             <TabsTrigger value="portal" className="text-sm">
                                 Enterprise Portal Solutions
                             </TabsTrigger>
-                            <TabsTrigger value="api" className="text-sm">
-                                API Development & Integration
+                            <TabsTrigger value="ai" className="text-sm">
+                                AI Solutions
                             </TabsTrigger>
                         </TabsList>
 
@@ -81,7 +81,7 @@ export default function DigitalSolutionsPage() {
                                                 title="Progressive Web Apps (PWA)"
                                                 description="Fast, reliable, and engaging web applications that work offline and feel like native apps. Modern web technology at its best."
                                                 imageSrc={getDynamicImage(
-                                                    "Digital Solutions Page",
+                                                    "Software Solutions Page",
                                                     "Block 1",
                                                     "Image 1",
                                                 )}
@@ -91,23 +91,23 @@ export default function DigitalSolutionsPage() {
                                             />
 
                                             <SpecificSolutionCard
-                                                title="RESTful API Development"
-                                                description="Secure and scalable REST APIs for seamless integration between systems. Build robust API infrastructure."
+                                                title="API Development & Integration"
+                                                description="Design and implement robust APIs for seamless system integration and data exchange. Connect disparate systems with secure, scalable API architecture and comprehensive documentation."
                                                 imageSrc={getDynamicImage(
-                                                    "Digital Solutions Page",
+                                                    "Software Solutions Page",
                                                     "Block 1",
                                                     "Image 2",
                                                 )}
-                                                imageAlt="RESTful API Development"
+                                                imageAlt="API Development & Integration"
                                                 icon={Code2}
-                                                tags={["REST API", "Secure", "Scalable"]}
+                                                tags={["API Design", "Integration", "Scalable"]}
                                             />
 
                                             <SpecificSolutionCard
                                                 title="Frontend Development (React, Angular, Vue)"
                                                 description="Modern, responsive frontends built with the latest JavaScript frameworks. Beautiful and performant user interfaces."
                                                 imageSrc={getDynamicImage(
-                                                    "Digital Solutions Page",
+                                                    "Software Solutions Page",
                                                     "Block 1",
                                                     "Image 3",
                                                 )}
@@ -120,7 +120,7 @@ export default function DigitalSolutionsPage() {
                                                 title="Backend Development (Node.js, Python, .NET)"
                                                 description="Robust backend systems with your preferred technology stack. Powerful server-side solutions."
                                                 imageSrc={getDynamicImage(
-                                                    "Digital Solutions Page",
+                                                    "Software Solutions Page",
                                                     "Block 1",
                                                     "Image 4",
                                                 )}
@@ -153,7 +153,7 @@ export default function DigitalSolutionsPage() {
                                                 title="Enterprise Portal Dashboard"
                                                 description="Centralized portals for internal teams with role-based access and workflows. Streamline collaboration and operations."
                                                 imageSrc={getDynamicImage(
-                                                    "Digital Solutions Page",
+                                                    "Software Solutions Page",
                                                     "Block 2",
                                                     "Image 1",
                                                 )}
@@ -167,13 +167,14 @@ export default function DigitalSolutionsPage() {
                             </Card>
                         </TabsContent>
 
-                        <TabsContent value="api" className="mt-8">
+                        <TabsContent value="ai" className="mt-8">
                             <Card>
                                 <CardHeader>
-                                    <CardTitle>API Development & Integration</CardTitle>
+                                    <CardTitle>AI Solutions</CardTitle>
                                     <CardDescription>
-                                        Connect systems, enable data exchange, and build extensible
-                                        platforms with robust APIs
+                                        Advanced artificial intelligence solutions for intelligent
+                                        automation, multi-agent systems, and autonomous workflow
+                                        management
                                     </CardDescription>
                                 </CardHeader>
                                 <CardContent className="space-y-6">
@@ -183,19 +184,36 @@ export default function DigitalSolutionsPage() {
                                         </h3>
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                             <SpecificSolutionCard
-                                                title="API Integration Diagram"
-                                                description="Design and document API architectures for complex system integrations. Clear blueprints for seamless connectivity."
+                                                title="Multi-Agentic AI Systems"
+                                                description="Deploy intelligent multi-agent frameworks where multiple AI agents collaborate to solve complex business problems. Each agent specializes in specific tasks, communicating and coordinating to achieve optimal outcomes with enhanced scalability and resilience."
                                                 imageSrc={getDynamicImage(
-                                                    "Digital Solutions Page",
+                                                    "Software Solutions Page",
                                                     "Block 3",
                                                     "Image 1",
                                                 )}
-                                                imageAlt="API Integration Diagram"
-                                                icon={Code2}
+                                                imageAlt="Multi-Agentic AI Systems"
+                                                icon={Brain}
                                                 tags={[
-                                                    "API Design",
-                                                    "Documentation",
-                                                    "Integration",
+                                                    "Multi-Agent",
+                                                    "AI Collaboration",
+                                                    "Intelligent Systems",
+                                                ]}
+                                            />
+
+                                            <SpecificSolutionCard
+                                                title="Autonomous Workflow AI"
+                                                description="Implement self-managing AI systems that automatically orchestrate and optimize business workflows. These intelligent systems learn from patterns, adapt to changes, and continuously improve processes without human intervention, delivering unprecedented operational efficiency."
+                                                imageSrc={getDynamicImage(
+                                                    "Software Solutions Page",
+                                                    "Block 3",
+                                                    "Image 2",
+                                                )}
+                                                imageAlt="Autonomous Workflow AI"
+                                                icon={Workflow}
+                                                tags={[
+                                                    "Auto-Workflow",
+                                                    "Process Optimization",
+                                                    "Self-Learning",
                                                 ]}
                                             />
                                         </div>
@@ -212,10 +230,10 @@ export default function DigitalSolutionsPage() {
                         >
                             <CardContent className="pt-6">
                                 <h3 className="text-2xl font-bold mb-3 text-balance text-white">
-                                    Ready to Build Your Digital Solution?
+                                    Ready to Build Your Software Solution?
                                 </h3>
                                 <p className="text-primary-foreground/90 mb-6 leading-relaxed max-w-2xl mx-auto text-balance">
-                                    Let's discuss how our digital solutions can help you create
+                                    Let's discuss how our software solutions can help you create
                                     exceptional user experiences
                                 </p>
                                 <Button

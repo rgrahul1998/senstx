@@ -243,12 +243,30 @@ export default function ContactPage() {
                                             {...register("service_interest")}
                                         >
                                             <option value="">Select a service</option>
-                                            <option value="financial">Financial Services</option>
-                                            <option value="enterprise">Enterprise Solutions</option>
-                                            <option value="ai">AI & Automation</option>
-                                            <option value="data">Data Analytics</option>
-                                            <option value="cloud">Cloud Services</option>
-                                            <option value="digital">Digital Solutions</option>
+                                            {settings?.contact_service_list &&
+                                            settings.contact_service_list.length > 0 ? (
+                                                settings.contact_service_list.map((item, index) => (
+                                                    <option key={index} value={item}>
+                                                        {item}
+                                                    </option>
+                                                ))
+                                            ) : (
+                                                <>
+                                                    <option value="financial">
+                                                        Financial Services
+                                                    </option>
+                                                    <option value="enterprise">
+                                                        Enterprise Solutions
+                                                    </option>
+                                                    <option value="data">
+                                                        AI and Data Analytics
+                                                    </option>
+                                                    <option value="cloud">Cloud Services</option>
+                                                    <option value="digital">
+                                                        Software Solutions
+                                                    </option>
+                                                </>
+                                            )}
                                         </select>
                                     </div>
 

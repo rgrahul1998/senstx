@@ -1,4 +1,4 @@
-import client from "./client"
+import { callAPI } from "./client"
 
 export interface ContactFormData {
     first_name: string
@@ -11,9 +11,6 @@ export interface ContactFormData {
 }
 
 export const submitContact = async (data: ContactFormData) => {
-    const response = await client.post(
-        "/api/method/acuman_profile.acuman_profile.api.contact_us.submit_contact",
-        data,
-    )
-    return response.data
+    const result = await callAPI("contact_us", "submit_contact", data)
+    return result
 }

@@ -1,7 +1,27 @@
 import { Card, CardContent } from "@mui/material"
-import { Building2, Users, Target, Award, MapPin } from "lucide-react"
+import { Building2, Users, Target, Award, MapPin, Quote } from "lucide-react"
+import DynamicMedia from "../../components/common/DynamicMedia"
+import { useSettings } from "../../context/SettingsContext"
+import { useCallback } from "react"
+import type { SettingsMedia } from "../../api/settings"
 
 export default function WhoWeArePage() {
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) return undefined
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+            return found ? found.attach_file : undefined
+        },
+        [settings],
+    )
+
     const values = [
         {
             icon: Target,
@@ -55,21 +75,54 @@ export default function WhoWeArePage() {
         },
     ]
 
+    const testimonials = [
+        {
+            quote: "Senstx transformed our financial operations with their innovative AI solutions. The automated risk assessment system has increased our efficiency by 300%.",
+            author: "Sarah Johnson",
+            position: "CTO",
+            company: "FinTech Solutions Ltd",
+            image: "testimonial-1",
+        },
+        {
+            quote: "Their enterprise software development expertise is unmatched. They delivered a complex ERP system on time and within budget.",
+            author: "Michael Chen",
+            position: "Operations Director",
+            company: "Global Manufacturing Corp",
+            image: "testimonial-2",
+        },
+        {
+            quote: "The cloud migration services provided by Senstx saved us 40% in infrastructure costs while improving our system performance significantly.",
+            author: "Emma Williams",
+            position: "IT Director",
+            company: "Healthcare Systems Inc",
+            image: "testimonial-3",
+        },
+    ]
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
             <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary/10 via-background to-background">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-                            Who We Are
-                        </h1>
-                        <p className="text-lg lg:text-xl text-muted-foreground text-pretty">
-                            We are a leading software consultancy firm specializing in delivering
-                            innovative solutions that transform businesses. Our expertise spans
-                            across financial services, enterprise solutions, AI & automation, data
-                            analytics, cloud services, and digital solutions.
-                        </p>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="max-w-2xl">
+                            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
+                                Who We Are
+                            </h1>
+                            <p className="text-lg lg:text-xl text-muted-foreground text-pretty">
+                                We are a leading software consultancy firm specializing in
+                                delivering innovative solutions that transform businesses. Our
+                                expertise spans across financial services, enterprise solutions, AI
+                                & automation, data analytics, cloud services, and digital solutions.
+                            </p>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden border shadow-lg">
+                            <DynamicMedia
+                                src={getDynamicImage("Who We Are Page", "Block 1", "Image 1")}
+                                alt="Senstx Team and Office"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -108,13 +161,13 @@ export default function WhoWeArePage() {
                             return (
                                 <Card
                                     key={index}
-                                    className="border-2 hover:border-primary/50 transition-colors pt-10 pb-10 px-6"
+                                    className="border-2 hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 pt-10 pb-10 px-6 group"
                                     style={{ borderRadius: "10px" }}
                                 >
                                     <CardContent className="p-8">
                                         <div className="flex items-start gap-4">
-                                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                                                <Icon className="w-6 h-6 text-primary" />
+                                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center transition-colors duration-300">
+                                                <Icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                                             </div>
                                             <div className="flex-1">
                                                 <h3 className="text-xl font-semibold text-foreground mb-3">
@@ -165,6 +218,64 @@ export default function WhoWeArePage() {
                 </div>
             </section>
 
+            {/* Client Testimonials Section */}
+            <section className="py-20 lg:py-32">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-2xl mx-auto text-center mb-16">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 text-balance">
+                            What Our Clients Say
+                        </h2>
+                        <p className="text-lg text-muted-foreground text-pretty">
+                            Trusted by leading organizations worldwide
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {testimonials.map((testimonial, index) => (
+                            <Card
+                                key={index}
+                                className="border-2 hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+                                style={{ borderRadius: "10px" }}
+                            >
+                                <CardContent className="p-8">
+                                    <div className="flex items-start gap-4 mb-6">
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center transition-colors duration-300">
+                                            <Quote className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                                        </div>
+                                    </div>
+
+                                    <blockquote className="text-muted-foreground leading-relaxed mb-6 italic">
+                                        "{testimonial.quote}"
+                                    </blockquote>
+
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                                            <DynamicMedia
+                                                src={getDynamicImage(
+                                                    "Who We Are Page",
+                                                    "Testimonials",
+                                                    `Image ${index + 1}`,
+                                                )}
+                                                alt={`${testimonial.author} portrait`}
+                                                className="w-12 h-12 rounded-full object-cover"
+                                            />
+                                        </div>
+                                        <div>
+                                            <div className="font-semibold text-foreground">
+                                                {testimonial.author}
+                                            </div>
+                                            <div className="text-sm text-muted-foreground">
+                                                {testimonial.position}, {testimonial.company}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Locations Section */}
             <section className="py-20 lg:py-32">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -182,13 +293,13 @@ export default function WhoWeArePage() {
                         {locations.map((location, index) => (
                             <Card
                                 key={index}
-                                className="border-2 hover:border-primary/50 transition-color pt-10 pb-10 px-6"
+                                className="border-2 hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 pt-10 pb-10 px-6 group"
                                 style={{ borderRadius: "10px" }}
                             >
                                 <CardContent className="p-8">
                                     <div className="flex items-start gap-4">
-                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                                            <MapPin className="w-6 h-6 text-primary" />
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center transition-colors duration-300">
+                                            <MapPin className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                                         </div>
                                         <div className="flex-1">
                                             <h3 className="text-2xl font-semibold text-foreground mb-2">

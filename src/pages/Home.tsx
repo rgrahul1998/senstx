@@ -68,18 +68,18 @@ const Home = () => {
                 icon: Cog,
                 image: getDynamicImage("Home Page", "Block 1", "Image 2"),
             },
+            // {
+            //     badge: "AI & Automation",
+            //     title: "Accelerate Innovation",
+            //     subtitle: "Using",
+            //     highlight: "AI-Powered Solutions",
+            //     description:
+            //         "Deploy intelligent document processing, predictive analytics, and automated workflows to reduce manual effort and drive operational excellence",
+            //     icon: Sparkles,
+            //     image: getDynamicImage("Home Page", "Block 1", "Image 3"),
+            // },
             {
                 badge: "AI & Automation",
-                title: "Accelerate Innovation",
-                subtitle: "Using",
-                highlight: "AI-Powered Solutions",
-                description:
-                    "Deploy intelligent document processing, predictive analytics, and automated workflows to reduce manual effort and drive operational excellence",
-                icon: Sparkles,
-                image: getDynamicImage("Home Page", "Block 1", "Image 3"),
-            },
-            {
-                badge: "Data Analytics",
                 title: "Transforming Industries",
                 subtitle: "Through",
                 highlight: "Data-Driven Insights",
@@ -99,7 +99,7 @@ const Home = () => {
                 image: getDynamicImage("Home Page", "Block 1", "Image 5"),
             },
             {
-                badge: "Digital Solutions",
+                badge: "Software Solutions",
                 title: "Build Modern Experiences",
                 subtitle: "Through",
                 highlight: "Custom Development",
@@ -150,21 +150,21 @@ const Home = () => {
                     "Business Process Automation",
                 ],
             },
+            // {
+            //     title: "AI & Automation",
+            //     description:
+            //         "Harness the power of artificial intelligence and machine learning to automate processes and gain predictive insights.",
+            //     icon: Sparkles,
+            //     href: "/services/ai-automation",
+            //     image: getDynamicImage("Home Page", "Block 2", "Image 3"),
+            //     features: [
+            //         "Intelligent Document Processing",
+            //         "Predictive Risk Models",
+            //         "Automated Workflows",
+            //     ],
+            // },
             {
                 title: "AI & Automation",
-                description:
-                    "Harness the power of artificial intelligence and machine learning to automate processes and gain predictive insights.",
-                icon: Sparkles,
-                href: "/services/ai-automation",
-                image: getDynamicImage("Home Page", "Block 2", "Image 3"),
-                features: [
-                    "Intelligent Document Processing",
-                    "Predictive Risk Models",
-                    "Automated Workflows",
-                ],
-            },
-            {
-                title: "Data Analytics",
                 description:
                     "Transform raw data into actionable insights with advanced analytics and business intelligence solutions.",
                 icon: Database,
@@ -190,7 +190,7 @@ const Home = () => {
                 ],
             },
             {
-                title: "Digital Solutions",
+                title: "Software Solutions",
                 description:
                     "Build modern, responsive web applications and APIs using cutting-edge technologies and best practices.",
                 icon: Monitor,
@@ -420,7 +420,7 @@ const Home = () => {
                             </div>
                         </div>
 
-                        {/* Data Analytics AI */}
+                        {/* AI & Automation */}
                         <div className="group relative">
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all" />
                             <div
@@ -433,7 +433,7 @@ const Home = () => {
                                     </div>
 
                                     <h3 className="text-white text-xl font-bold mb-2">
-                                        AI in Data Analytics
+                                        AI & Automation Solutions
                                     </h3>
 
                                     <p className="text-slate-300 leading-relaxed mb-4">

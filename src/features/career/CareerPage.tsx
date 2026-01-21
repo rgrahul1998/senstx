@@ -6,12 +6,31 @@ import { Badge } from "../../components/common/Badge"
 import { Button } from "../../components/common/Button"
 import { fetchJobOpenings, type JobOpening } from "../../api/career"
 import JobApplicationModal from "./JobApplicationModal"
+import DynamicMedia from "../../components/common/DynamicMedia"
+import { useSettings } from "../../context/SettingsContext"
+import { useCallback } from "react"
+import type { SettingsMedia } from "../../api/settings"
 
 export default function CareerPage() {
     const [openings, setOpenings] = useState<JobOpening[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null)
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const { settings } = useSettings()
+
+    const getDynamicImage = useCallback(
+        (page: string, block: string, imageNo: string) => {
+            if (!settings?.media_list) return undefined
+            const found = settings.media_list.find(
+                (img: SettingsMedia) =>
+                    img.page_reference === page &&
+                    img.block_no === block &&
+                    img.image_no === imageNo,
+            )
+            return found ? found.attach_file : undefined
+        },
+        [settings],
+    )
 
     useEffect(() => {
         const loadJobs = async () => {
@@ -65,15 +84,28 @@ export default function CareerPage() {
             {/* Hero Section */}
             <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground text-balance">
-                            Build Your Career With Us
-                        </h1>
-                        <p className="text-lg text-muted-foreground text-balance leading-relaxed">
-                            Join a team of innovators, problem-solvers, and technology enthusiasts
-                            dedicated to transforming businesses through cutting-edge software
-                            solutions.
-                        </p>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="max-w-2xl">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground text-balance">
+                                Build Your Career With Us
+                            </h1>
+                            <p className="text-lg text-muted-foreground text-balance leading-relaxed">
+                                Join a team of innovators, problem-solvers, and technology enthusiasts
+                                dedicated to transforming businesses through cutting-edge software
+                                solutions.
+                            </p>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden border shadow-lg">
+                            <DynamicMedia
+                                src={getDynamicImage(
+                                    "Career Page",
+                                    "Block 1",
+                                    "Image 1",
+                                )}
+                                alt="Senstx Team Culture"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -93,10 +125,12 @@ export default function CareerPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                         {benefits.map((benefit, index) => (
-                            <Card key={index}>
+                            <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
                                 <CardHeader>
-                                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
-                                        {benefit.icon}
+                                    <div className="h-12 w-12 rounded-lg bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center mb-4 text-primary transition-colors duration-300">
+                                        <div className="group-hover:scale-110 transition-transform duration-300">
+                                            {benefit.icon}
+                                        </div>
                                     </div>
                                     <CardTitle className="text-xl">{benefit.title}</CardTitle>
                                     <CardDescription className="text-base leading-relaxed">

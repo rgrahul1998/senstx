@@ -1,7 +1,3 @@
-// import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-// import { Button } from "@/components/ui/button"
-// import Link from "next/link"
 import {
     ArrowRight,
     Settings,
@@ -25,6 +21,7 @@ import Card, {
 } from "../../components/common/Card"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import DynamicMedia from "../../components/common/DynamicMedia"
 import { useSettings } from "../../context/SettingsContext"
 import { useCallback } from "react"
 import type { SettingsMedia } from "../../api/settings"
@@ -51,14 +48,27 @@ export default function EnterpriseSolutionPage() {
         <div className="min-h-screen flex flex-col">
             <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
-                            Enterprise Solution
-                        </h1>
-                        <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Custom enterprise software solutions including ERP, CRM, and accounting
-                            systems tailored to your business needs.
-                        </p>
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="max-w-xl">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
+                                Enterprise Solution
+                            </h1>
+                            <p className="text-lg text-muted-foreground leading-relaxed text-balance">
+                                Custom enterprise software solutions including ERP, CRM, and accounting
+                                systems tailored to your business needs.
+                            </p>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
+                            <DynamicMedia
+                                src={getDynamicImage(
+                                    "Enterprise Solution Page",
+                                    "Block 1",
+                                    "Image 1",
+                                )}
+                                alt="Enterprise Solutions Dashboard"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -77,7 +87,7 @@ export default function EnterpriseSolutionPage() {
                                 Accounting Software
                             </TabsTrigger>
                             <TabsTrigger value="ms-business" className="text-sm">
-                                MS Business Solution
+                                Microsoft Solution
                             </TabsTrigger>
                         </TabsList>
 
@@ -101,7 +111,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Tailored ERP systems designed to match your unique business processes and workflows. Build comprehensive solutions that integrate all aspects of your business operations."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Custom ERP Development"
@@ -114,7 +124,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Seamless Microsoft Dynamics 365 implementation and customization for enterprise needs. Leverage the power of Microsoft's cloud-based ERP platform."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="Dynamics 365 Integration"
@@ -127,7 +137,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Custom modules to extend your ERP capabilities and adapt to changing business requirements. Add new functionality without disrupting existing operations."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 1",
+                                                    "Block 3",
                                                     "Image 3",
                                                 )}
                                                 imageAlt="ERP Module Customization"
@@ -140,7 +150,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Automate complex workflows across multiple systems for improved efficiency. Streamline processes and reduce manual intervention."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 1",
+                                                    "Block 4",
                                                     "Image 4",
                                                 )}
                                                 imageAlt="Workflow Automation"
@@ -173,7 +183,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Complete Salesforce setup, customization, and integration with your existing systems. Maximize your CRM investment with tailored solutions."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Salesforce Integration"
@@ -190,7 +200,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="HubSpot CRM implementation with marketing automation and sales pipeline management. Streamline your customer engagement."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="HubSpot Integration"
@@ -203,7 +213,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Affordable and powerful Zoho CRM solutions for growing businesses. Scale your customer relationships efficiently."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 3",
                                                 )}
                                                 imageAlt="Zoho CRM Integration"
@@ -236,7 +246,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Cloud-based accounting with Xero for real-time financial visibility. Manage your finances from anywhere with confidence."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Xero Integration"
@@ -249,7 +259,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="QuickBooks setup and customization for small to medium businesses. Simplify your accounting processes."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="QuickBooks Integration"
@@ -262,7 +272,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Enterprise-grade NetSuite ERP and financial management solutions. Comprehensive platform for large organizations."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 3",
                                                 )}
                                                 imageAlt="NetSuite Integration"
@@ -275,7 +285,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Streamline invoice processing with automated data extraction and approval workflows. Reduce manual work and errors."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 4",
                                                 )}
                                                 imageAlt="Automated Invoice Processing"
@@ -288,7 +298,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Keep all your financial systems in sync with real-time data integration. Ensure data consistency across platforms."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 5",
                                                 )}
                                                 imageAlt="Real-time Data Synchronization"
@@ -304,7 +314,7 @@ export default function EnterpriseSolutionPage() {
                         <TabsContent value="ms-business" className="mt-8">
                             <Card>
                                 <CardHeader>
-                                    <CardTitle>MS Business Solution</CardTitle>
+                                    <CardTitle>Microsoft Solution</CardTitle>
                                     <CardDescription>
                                         Microsoft Business Central and Dynamics solutions for
                                         comprehensive business management
@@ -321,7 +331,7 @@ export default function EnterpriseSolutionPage() {
                                                 description="Complete business management solution connecting sales, service, finance, and operations. All-in-one Microsoft platform for growing businesses."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
-                                                    "Block 4",
+                                                    "Block 5",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Microsoft Business Central"

@@ -1,4 +1,4 @@
-import client from "./client"
+import { callAPI } from "./client"
 
 export interface SettingsMedia {
     page_reference: string
@@ -13,6 +13,7 @@ export interface DigitalInsightsSettings {
     company_add_line_1: string
     company_add_line_2: string
     media_list?: SettingsMedia[]
+    contact_service_list?: string[]
 }
 
 export interface SettingsResponse {
@@ -24,11 +25,9 @@ export interface SettingsResponse {
 
 export const getDigitalInsightsSettings = async (): Promise<DigitalInsightsSettings | null> => {
     try {
-        const response = await client.get<SettingsResponse>(
-            "/api/method/acuman_profile.acuman_profile.api.digital_settings.get_digital_insights_settings",
-        )
-        if (response.data.message.success) {
-            return response.data.message.data
+        const result = await callAPI("home", "senstx_default_data")
+        if (result.message.success) {
+            return result.message.data
         }
         return null
     } catch (error) {

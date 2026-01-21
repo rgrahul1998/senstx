@@ -23,15 +23,21 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
+    // const services = [
+    //     { name: "Financial Services", href: "/services/FinancialServicesPage" },
+    //     { name: "Enterprise Solution", href: "/services/enterprise-solution" },
+    //     { name: "AI & Automation", href: "/services/ai-automation" },
+    //     { name: "Data Analytics", href: "/services/data-analytics" },
+    //     { name: "Cloud Services", href: "/services/cloud-services" },
+    //     { name: "Digital Solutions", href: "/services/digital-solutions" },
+    // ]
     const services = [
         { name: "Financial Services", href: "/services/FinancialServicesPage" },
         { name: "Enterprise Solution", href: "/services/enterprise-solution" },
-        { name: "AI & Automation", href: "/services/ai-automation" },
-        { name: "Data Analytics", href: "/services/data-analytics" },
+        { name: "AI & Automation", href: "/services/data-analytics" },
         { name: "Cloud Services", href: "/services/cloud-services" },
-        { name: "Digital Solutions", href: "/services/digital-solutions" },
+        { name: "Software Solutions", href: "/services/digital-solutions" },
     ]
-
     return (
         <nav className="backdrop-blur-xl bg-white/10 border-b border-white/20 py-1 px-4 sticky top-0 z-50 shadow-lg">
             <div className="container mx-auto flex justify-between items-center">

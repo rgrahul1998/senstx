@@ -1,10 +1,11 @@
-import { ArrowRight, Database, Zap, BarChart3, TrendingUp, Users } from "lucide-react"
+import { ArrowRight, Database, Zap, BarChart3, TrendingUp, Users, Receipt, FileCheck } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
 import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
 import { Button } from "../../components/common/Button"
 import { useNavigate } from "react-router-dom"
 import SpecificSolutionCard from "../../components/services/SpecificSolutionCard"
+import DynamicMedia from "../../components/common/DynamicMedia"
 import { useSettings } from "../../context/SettingsContext"
 import { useCallback } from "react"
 import type { SettingsMedia } from "../../api/settings"
@@ -30,14 +31,27 @@ export default function DataAnalyticsPage() {
         <div className="min-h-screen flex flex-col">
             <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
-                            Data Analytics
-                        </h1>
-                        <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Transform raw data into actionable insights with advanced analytics,
-                            business intelligence, and data engineering solutions.
-                        </p>
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="max-w-xl">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
+                                AI & Automation
+                            </h1>
+                            <p className="text-lg text-muted-foreground leading-relaxed text-balance">
+                                Leverage artificial intelligence and automation to streamline
+                                operations, reduce costs, and improve accuracy across your business.
+                            </p>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
+                            <DynamicMedia
+                                src={getDynamicImage(
+                                    "Data Analytics Page",
+                                    "Block 1",
+                                    "Image 1",
+                                )}
+                                alt="Data Analytics Dashboard"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -47,7 +61,7 @@ export default function DataAnalyticsPage() {
                     <Tabs defaultValue="engineering" className="w-full">
                         <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto gap-2 bg-muted/50 p-2">
                             <TabsTrigger value="engineering" className="text-sm">
-                                Data Engineering & Integration
+                                AI & Data Engineering
                             </TabsTrigger>
                             <TabsTrigger value="bi" className="text-sm">
                                 Business Intelligence
@@ -60,10 +74,10 @@ export default function DataAnalyticsPage() {
                         <TabsContent value="engineering" className="mt-8">
                             <Card>
                                 <CardHeader>
-                                    <CardTitle>Data Engineering & Integration</CardTitle>
+                                    <CardTitle>AI & Data Engineering</CardTitle>
                                     <CardDescription>
                                         Build robust data pipelines and integrate disparate data
-                                        sources for unified analytics
+                                        sources for unified analytics powered by AI
                                     </CardDescription>
                                 </CardHeader>
                                 <CardContent className="space-y-6">
@@ -77,7 +91,7 @@ export default function DataAnalyticsPage() {
                                                 description="Design and implement automated ETL processes to extract, transform, and load data efficiently. Build scalable pipelines that handle large volumes of data with error handling, monitoring, and automated scheduling."
                                                 imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Automated ETL Pipeline"
@@ -90,7 +104,7 @@ export default function DataAnalyticsPage() {
                                                 description="Connect multiple data sources with real-time synchronization for up-to-date insights. Stream processing capabilities ensure data is always current and available for immediate analysis."
                                                 imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="Real-time Data Integration"
@@ -99,16 +113,29 @@ export default function DataAnalyticsPage() {
                                             />
 
                                             <SpecificSolutionCard
-                                                title="Financial Data Warehousing"
-                                                description="Centralized data warehouse solutions optimized for financial analysis and reporting. Enterprise-grade architecture with data governance, security, and compliance built-in."
+                                                title="Automated Invoice & Receipt Processing"
+                                                description="Extract and process invoice data automatically with high accuracy. OCR technology and AI extract key information from invoices and receipts for seamless accounting integration and data analysis workflows."
                                                 imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
-                                                    "Block 1",
+                                                    "Block 2",
                                                     "Image 3",
                                                 )}
-                                                imageAlt="Financial Data Warehousing"
-                                                icon={Database}
-                                                tags={["Centralized", "Secure", "Optimized"]}
+                                                imageAlt="Invoice Processing"
+                                                icon={Receipt}
+                                                tags={["OCR", "Automated", "High Accuracy"]}
+                                            />
+
+                                            <SpecificSolutionCard
+                                                title="Loan Document Analysis & Extraction"
+                                                description="Automated extraction of key information from loan applications and supporting documents. Streamline loan processing with intelligent document understanding and data extraction for comprehensive analytics."
+                                                imageSrc={getDynamicImage(
+                                                    "Data Analytics Page",
+                                                    "Block 2",
+                                                    "Image 4",
+                                                )}
+                                                imageAlt="Loan Document Analysis"
+                                                icon={FileCheck}
+                                                tags={["Intelligent", "Extraction", "Streamlined"]}
                                             />
                                         </div>
                                     </div>
@@ -136,7 +163,7 @@ export default function DataAnalyticsPage() {
                                                 description="Interactive dashboards tailored to your KPIs with drill-down capabilities. Create stunning visualizations that tell your data story and enable data-driven decision making across your organization."
                                                 imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Custom BI Dashboards"
@@ -149,7 +176,7 @@ export default function DataAnalyticsPage() {
                                                 description="Track and visualize key financial metrics with real-time performance indicators. Monitor revenue, expenses, profitability, and other critical financial metrics at a glance."
                                                 imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
-                                                    "Block 2",
+                                                    "Block 3",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="Financial KPI Visualization"
@@ -186,7 +213,7 @@ export default function DataAnalyticsPage() {
                                                 description="Comprehensive sales analysis with revenue forecasting and trend identification. Predictive models help anticipate future sales patterns and optimize revenue strategies."
                                                 imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 1",
                                                 )}
                                                 imageAlt="Sales & Revenue Analytics"
@@ -203,7 +230,7 @@ export default function DataAnalyticsPage() {
                                                 description="Deep insights into customer patterns, preferences, and lifetime value. Understand what drives customer decisions and optimize engagement strategies."
                                                 imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 2",
                                                 )}
                                                 imageAlt="Customer Behavior Analysis"
@@ -220,7 +247,7 @@ export default function DataAnalyticsPage() {
                                                 description="Detailed customer segmentation and behavior reports for targeted marketing. Actionable insights to personalize campaigns and improve customer retention."
                                                 imageSrc={getDynamicImage(
                                                     "Data Analytics Page",
-                                                    "Block 3",
+                                                    "Block 4",
                                                     "Image 3",
                                                 )}
                                                 imageAlt="Customer Analytics Report"
@@ -245,11 +272,11 @@ export default function DataAnalyticsPage() {
                         >
                             <CardContent className="pt-6">
                                 <h3 className="text-2xl font-bold mb-3 text-balance text-white">
-                                    Ready to Unlock Your Data's Potential?
+                                    Ready to Automate Your Operations?
                                 </h3>
                                 <p className="text-primary-foreground/90 mb-6 leading-relaxed max-w-2xl mx-auto text-balance">
-                                    Let's discuss how data analytics can transform your business
-                                    intelligence
+                                    Let's discuss how AI and automation can transform your business
+                                    processes
                                 </p>
                                 <Button
                                     size="lg"
