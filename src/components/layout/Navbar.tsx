@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { Menu, MenuItem } from "@mui/material"
 import { ChevronDown, Menu as MenuIcon, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -10,6 +10,7 @@ const Navbar = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const open = Boolean(anchorEl)
+    const location = useLocation()
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget)
@@ -23,21 +24,24 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    // const services = [
-    //     { name: "Financial Services", href: "/services/FinancialServicesPage" },
-    //     { name: "Enterprise Solution", href: "/services/enterprise-solution" },
-    //     { name: "AI & Automation", href: "/services/ai-automation" },
-    //     { name: "Data Analytics", href: "/services/data-analytics" },
-    //     { name: "Cloud Services", href: "/services/cloud-services" },
-    //     { name: "Digital Solutions", href: "/services/digital-solutions" },
-    // ]
     const services = [
-        { name: "Financial Services", href: "/services/FinancialServicesPage" },
+        { name: "Artificial Intelligence", href: "/services/ai-services" },
+        { name: "Financial Services", href: "/services/financial-services" },
         { name: "Enterprise Solution", href: "/services/enterprise-solution" },
-        { name: "AI & Automation", href: "/services/data-analytics" },
         { name: "Cloud Services", href: "/services/cloud-services" },
-        { name: "Software Solutions", href: "/services/digital-solutions" },
+        { name: "Data Analytics", href: "/services/data-analytics" },
     ]
+
+    const isActive = (path: string) => location.pathname === path
+    const isServicesActive = () => location.pathname.startsWith("/services")
+
+    const navLinkClass = (path: string) =>
+        `transition-colors ${
+            isActive(path)
+                ? "text-gray-900 font-semibold"
+                : "text-gray-600 hover:text-gray-900 hover:font-medium"
+        }`
+
     return (
         <nav className="backdrop-blur-xl bg-white/10 border-b border-white/20 py-1 px-4 sticky top-0 z-50 shadow-lg">
             <div className="container mx-auto flex justify-between items-center">
@@ -48,10 +52,7 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-12 items-center">
-                    <Link
-                        to="/who-we-are"
-                        className="text-gray-600 transition-colors hover:font-medium hover:text-gray-900"
-                    >
+                    <Link to="/who-we-are" className={navLinkClass("/who-we-are")}>
                         Who we are
                     </Link>
 
@@ -63,7 +64,11 @@ const Navbar = () => {
                             aria-haspopup="true"
                             aria-expanded={open ? "true" : undefined}
                             onClick={handleClick}
-                            className="text-gray-600 transition-colors flex items-center gap-1 hover:font-medium hover:text-gray-900"
+                            className={`transition-colors flex items-center gap-1 ${
+                                isServicesActive()
+                                    ? "text-gray-900 font-semibold"
+                                    : "text-gray-600 hover:text-gray-900 hover:font-medium"
+                            }`}
                         >
                             Services
                             <ChevronDown className="h-4 w-4" />
@@ -82,6 +87,7 @@ const Navbar = () => {
                                     onClick={handleClose}
                                     component={Link}
                                     to={service.href}
+                                    selected={isActive(service.href)}
                                 >
                                     {service.name}
                                 </MenuItem>
@@ -89,16 +95,13 @@ const Navbar = () => {
                         </Menu>
                     </div>
 
-                    <Link
-                        to="/career"
-                        className="text-gray-600 transition-colors hover:font-medium hover:text-gray-900"
-                    >
+                    <Link to="/use-cases" className={navLinkClass("/use-cases")}>
+                        Use Cases
+                    </Link>
+                    <Link to="/career" className={navLinkClass("/career")}>
                         Career
                     </Link>
-                    <Link
-                        to="/contact"
-                        className="text-gray-600 transition-colors hover:font-semibold hover:text-gray-900"
-                    >
+                    <Link to="/contact" className={navLinkClass("/contact")}>
                         Contact
                     </Link>
                 </div>
@@ -127,7 +130,11 @@ const Navbar = () => {
                         <div className="py-6 px-6 space-y-6">
                             <Link
                                 to="/who-we-are"
-                                className="block text-gray-600 hover:text-gray-900 font-medium text-lg border-b border-gray-100 pb-2"
+                                className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                                    isActive("/who-we-are")
+                                        ? "text-gray-900 font-semibold"
+                                        : "text-gray-600 hover:text-gray-900"
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Who we are
@@ -142,7 +149,11 @@ const Navbar = () => {
                                         <Link
                                             key={service.href}
                                             to={service.href}
-                                            className="block text-gray-600 hover:text-gray-900 text-base"
+                                            className={`block text-base ${
+                                                isActive(service.href)
+                                                    ? "text-gray-900 font-semibold"
+                                                    : "text-gray-600 hover:text-gray-900"
+                                            }`}
                                             onClick={() => setIsMenuOpen(false)}
                                         >
                                             {service.name}
@@ -152,29 +163,38 @@ const Navbar = () => {
                             </div>
 
                             <Link
+                                to="/use-cases"
+                                className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                                    isActive("/use-cases")
+                                        ? "text-gray-900 font-semibold"
+                                        : "text-gray-600 hover:text-gray-900"
+                                }`}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Use Cases
+                            </Link>
+                            <Link
                                 to="/career"
-                                className="block text-gray-600 hover:text-gray-900 font-medium text-lg border-b border-gray-100 pb-2"
+                                className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                                    isActive("/career")
+                                        ? "text-gray-900 font-semibold"
+                                        : "text-gray-600 hover:text-gray-900"
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Career
                             </Link>
                             <Link
                                 to="/contact"
-                                className="block text-gray-600 hover:text-gray-900 font-medium text-lg border-b border-gray-100 pb-2"
+                                className={`block font-medium text-lg border-b border-gray-100 pb-2 ${
+                                    isActive("/contact")
+                                        ? "text-gray-900 font-semibold"
+                                        : "text-gray-600 hover:text-gray-900"
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Contact
                             </Link>
-
-                            <div className="pt-2">
-                                <Link
-                                    to="/contact"
-                                    className="block w-full text-center bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Get Started
-                                </Link>
-                            </div>
                         </div>
                     </motion.div>
                 )}

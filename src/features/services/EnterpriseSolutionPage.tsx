@@ -10,6 +10,8 @@ import {
     FileSpreadsheet,
     RefreshCw, // Changed from Sync to RefreshCw
     Cloud,
+    Database,
+    Boxes,
 } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
 import { Button } from "../../components/common/Button"
@@ -46,7 +48,7 @@ export default function EnterpriseSolutionPage() {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+            <section className="py-12 md:py-16 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="max-w-xl">
@@ -54,8 +56,8 @@ export default function EnterpriseSolutionPage() {
                                 Enterprise Solution
                             </h1>
                             <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                                Custom enterprise software solutions including ERP, CRM, and accounting
-                                systems tailored to your business needs.
+                                Custom enterprise software solutions including ERP, CRM, and
+                                accounting systems tailored to your business needs.
                             </p>
                         </div>
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
@@ -146,16 +148,16 @@ export default function EnterpriseSolutionPage() {
                                             />
 
                                             <SpecificSolutionCard
-                                                title="Multi-system Workflow Automation"
-                                                description="Automate complex workflows across multiple systems for improved efficiency. Streamline processes and reduce manual intervention."
+                                                title="ERPNext Implementation & Customization"
+                                                description="Open-source ERPNext deployment, customization, and integration services. Complete business management solution with modules for accounting, inventory, CRM, manufacturing, and HR management."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
                                                     "Block 4",
                                                     "Image 4",
                                                 )}
-                                                imageAlt="Workflow Automation"
-                                                icon={Workflow}
-                                                tags={["Automated", "Multi-system", "Efficient"]}
+                                                imageAlt="ERPNext Implementation"
+                                                icon={Database}
+                                                tags={["ERPNext", "Open Source", "Full Suite"]}
                                             />
                                         </div>
                                     </div>
@@ -328,7 +330,7 @@ export default function EnterpriseSolutionPage() {
                                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                             <SpecificSolutionCard
                                                 title="Microsoft Business Central"
-                                                description="Complete business management solution connecting sales, service, finance, and operations. All-in-one Microsoft platform for growing businesses."
+                                                description="Complete business management solution connecting sales, service, finance, and operations. All-in-one Microsoft platform for growing businesses with advanced reporting and analytics."
                                                 imageSrc={getDynamicImage(
                                                     "Enterprise Solution Page",
                                                     "Block 5",
@@ -337,6 +339,19 @@ export default function EnterpriseSolutionPage() {
                                                 imageAlt="Microsoft Business Central"
                                                 icon={DollarSign}
                                                 tags={["Microsoft", "All-in-one", "Cloud"]}
+                                            />
+
+                                            <SpecificSolutionCard
+                                                title="Microsoft Power Platform Integration"
+                                                description="Leverage Power BI, Power Apps, and Power Automate to create custom business applications and automated workflows. Transform your business processes with low-code/no-code Microsoft solutions."
+                                                imageSrc={getDynamicImage(
+                                                    "Enterprise Solution Page",
+                                                    "Block 5",
+                                                    "Image 2",
+                                                )}
+                                                imageAlt="Microsoft Power Platform"
+                                                icon={Boxes}
+                                                tags={["Power Platform", "Low-Code", "Automation"]}
                                             />
                                         </div>
                                     </div>

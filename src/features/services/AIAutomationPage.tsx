@@ -30,7 +30,7 @@ export default function AIAutomationPage() {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+            <section className="py-12 md:py-16 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="max-w-xl">
@@ -44,11 +44,7 @@ export default function AIAutomationPage() {
                         </div>
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
                             <DynamicMedia
-                                src={getDynamicImage(
-                                    "AI Automation Page",
-                                    "Block 1",
-                                    "Image 1",
-                                )}
+                                src={getDynamicImage("AI Automation Page", "Block 1", "Image 1")}
                                 alt="AI & Automation Dashboard"
                                 className="w-full h-full object-cover"
                             />

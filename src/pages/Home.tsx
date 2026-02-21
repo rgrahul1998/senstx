@@ -8,7 +8,6 @@ import {
     Cog,
     Database,
     Sparkles,
-    Monitor,
     Brain,
     TrendingUp,
     Shield,
@@ -68,16 +67,16 @@ const Home = () => {
                 icon: Cog,
                 image: getDynamicImage("Home Page", "Block 1", "Image 2"),
             },
-            // {
-            //     badge: "AI & Automation",
-            //     title: "Accelerate Innovation",
-            //     subtitle: "Using",
-            //     highlight: "AI-Powered Solutions",
-            //     description:
-            //         "Deploy intelligent document processing, predictive analytics, and automated workflows to reduce manual effort and drive operational excellence",
-            //     icon: Sparkles,
-            //     image: getDynamicImage("Home Page", "Block 1", "Image 3"),
-            // },
+            {
+                badge: "AI & Automation",
+                title: "Accelerate Innovation",
+                subtitle: "Using",
+                highlight: "AI-Powered Solutions",
+                description:
+                    "Deploy intelligent document processing, predictive analytics, and automated workflows to reduce manual effort and drive operational excellence",
+                icon: Sparkles,
+                image: getDynamicImage("Home Page", "Block 1", "Image 3"),
+            },
             {
                 badge: "AI & Automation",
                 title: "Transforming Industries",
@@ -97,16 +96,6 @@ const Home = () => {
                     "Migrate and manage your applications across AWS, Azure, and GCP with optimized performance, security, and cost efficiency",
                 icon: Cloud,
                 image: getDynamicImage("Home Page", "Block 1", "Image 5"),
-            },
-            {
-                badge: "Software Solutions",
-                title: "Build Modern Experiences",
-                subtitle: "Through",
-                highlight: "Custom Development",
-                description:
-                    "Create progressive web apps, RESTful APIs, and enterprise portals using cutting-edge technologies like React, Angular, and Node.js",
-                icon: Monitor,
-                image: getDynamicImage("Home Page", "Block 1", "Image 6"),
             },
         ],
         [getDynamicImage],
@@ -150,21 +139,21 @@ const Home = () => {
                     "Business Process Automation",
                 ],
             },
-            // {
-            //     title: "AI & Automation",
-            //     description:
-            //         "Harness the power of artificial intelligence and machine learning to automate processes and gain predictive insights.",
-            //     icon: Sparkles,
-            //     href: "/services/ai-automation",
-            //     image: getDynamicImage("Home Page", "Block 2", "Image 3"),
-            //     features: [
-            //         "Intelligent Document Processing",
-            //         "Predictive Risk Models",
-            //         "Automated Workflows",
-            //     ],
-            // },
             {
                 title: "AI & Automation",
+                description:
+                    "Harness the power of artificial intelligence and machine learning to automate processes and gain predictive insights.",
+                icon: Sparkles,
+                href: "/services/ai-automation",
+                image: getDynamicImage("Home Page", "Block 2", "Image 3"),
+                features: [
+                    "Intelligent Document Processing",
+                    "Predictive Risk Models",
+                    "Automated Workflows",
+                ],
+            },
+            {
+                title: "Data Analytics",
                 description:
                     "Transform raw data into actionable insights with advanced analytics and business intelligence solutions.",
                 icon: Database,
@@ -189,15 +178,6 @@ const Home = () => {
                     "Cost Optimization",
                 ],
             },
-            {
-                title: "Software Solutions",
-                description:
-                    "Build modern, responsive web applications and APIs using cutting-edge technologies and best practices.",
-                icon: Monitor,
-                href: "/services/digital-solutions",
-                image: getDynamicImage("Home Page", "Block 2", "Image 6"),
-                features: ["Progressive Web Apps", "RESTful API Development", "Enterprise Portals"],
-            },
         ],
         [getDynamicImage],
     )
@@ -209,7 +189,7 @@ const Home = () => {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         {/* Left Content */}
                         <div className="space-y-6">
-                            <h1 className="text-[46px] sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[46px] font-bold text-white leading-tight">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-[46px] font-bold text-white leading-tight">
                                 {heroServices[currentSlide].title}
                                 <br />
                                 <span className="text-slate-400">
@@ -258,6 +238,22 @@ const Home = () => {
                                 />
                             </div>
                         </div>
+                    </div>
+
+                    {/* Slide Indicators */}
+                    <div className="flex justify-center gap-2 mt-10">
+                        {heroServices.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentSlide(index)}
+                                className={`h-3 w-3 rounded-full transition-all duration-300 ${
+                                    index === currentSlide
+                                        ? "bg-white scale-125"
+                                        : "bg-slate-600 hover:bg-slate-500"
+                                }`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>

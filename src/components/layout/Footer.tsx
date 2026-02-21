@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import logo from "../../assets/logo/Senstx.png"
 import { useSettings } from "../../context/SettingsContext"
 
@@ -24,19 +25,44 @@ const Footer = () => {
                     <h3 className="text-lg font-semibold mb-4">Services</h3>
                     <ul className="space-y-2">
                         <li>
-                            <a className="text-gray-600 hover:text-gray-900" href="#">
+                            <Link
+                                className="text-gray-600 hover:text-gray-900"
+                                to="/services/financial-services"
+                            >
                                 Financial Services
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="text-gray-600 hover:text-gray-900" href="#">
+                            <Link
+                                className="text-gray-600 hover:text-gray-900"
+                                to="/services/enterprise-solution"
+                            >
                                 Enterprise Solutions
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="text-gray-600 hover:text-gray-900" href="#">
-                                AI & Automation
-                            </a>
+                            <Link
+                                className="text-gray-600 hover:text-gray-900"
+                                to="/services/ai-services"
+                            >
+                                Artificial Intelligence
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                className="text-gray-600 hover:text-gray-900"
+                                to="/services/cloud-services"
+                            >
+                                Cloud Services
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                className="text-gray-600 hover:text-gray-900"
+                                to="/services/data-analytics"
+                            >
+                                Data Analytics
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -46,14 +72,24 @@ const Footer = () => {
                     <h3 className="text-lg font-semibold mb-4">Company</h3>
                     <ul className="space-y-2">
                         <li>
-                            <a className="text-gray-600 hover:text-gray-900" href="#">
+                            <Link className="text-gray-600 hover:text-gray-900" to="/who-we-are">
                                 About Us
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="text-gray-600 hover:text-gray-900" href="#">
+                            <Link className="text-gray-600 hover:text-gray-900" to="/career">
+                                Career
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="text-gray-600 hover:text-gray-900" to="/use-cases">
+                                Use Cases
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="text-gray-600 hover:text-gray-900" to="/contact">
                                 Contact
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

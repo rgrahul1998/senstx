@@ -1,4 +1,13 @@
-import { ArrowRight, Database, Zap, BarChart3, TrendingUp, Users, Receipt, FileCheck } from "lucide-react"
+import {
+    ArrowRight,
+    Database,
+    Zap,
+    BarChart3,
+    TrendingUp,
+    Users,
+    Receipt,
+    FileCheck,
+} from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/common/Table"
 import { Card } from "@mui/material"
 import { CardContent, CardDescription, CardHeader, CardTitle } from "../../components/common/Card"
@@ -29,25 +38,21 @@ export default function DataAnalyticsPage() {
     )
     return (
         <div className="min-h-screen flex flex-col">
-            <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+            <section className="py-12 md:py-16 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="max-w-xl">
                             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
-                                AI & Automation
+                                Data Analytics
                             </h1>
                             <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                                Leverage artificial intelligence and automation to streamline
-                                operations, reduce costs, and improve accuracy across your business.
+                                Turn raw data into actionable insights with advanced analytics,
+                                business intelligence, and AI-driven data engineering solutions.
                             </p>
                         </div>
                         <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
                             <DynamicMedia
-                                src={getDynamicImage(
-                                    "Data Analytics Page",
-                                    "Block 1",
-                                    "Image 1",
-                                )}
+                                src={getDynamicImage("Data Analytics Page", "Block 1", "Image 1")}
                                 alt="Data Analytics Dashboard"
                                 className="w-full h-full object-cover"
                             />

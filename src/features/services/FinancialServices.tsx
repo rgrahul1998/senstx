@@ -31,7 +31,7 @@ export default function FinancialServicesPage() {
     return (
         <div className="min-h-screen flex flex-col">
             {/* Hero Section */}
-            <section className="py-12 md:py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+            <section className="py-12 md:py-16 bg-gradient-to-br from-blue-500/10 to-purple-500/10">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="max-w-xl">
@@ -322,18 +322,7 @@ export default function FinancialServicesPage() {
                                 </CardHeader>
                                 <CardContent className="space-y-8">
                                     <div className="grid md:grid-cols-2 gap-6 items-center">
-                                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg order-2 md:order-1">
-                                            <DynamicMedia
-                                                src={getDynamicImage(
-                                                    "Financial Services Page",
-                                                    "Block 4",
-                                                    "Image 1",
-                                                )}
-                                                alt="Financial Reporting Dashboard"
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </div>
-                                        <div className="space-y-4 order-1 md:order-2">
+                                        <div className="space-y-4">
                                             <h3 className="text-xl font-semibold flex items-center gap-2">
                                                 <FileText className="h-5 w-5 text-primary" />
                                                 Intelligent Automation
@@ -346,6 +335,17 @@ export default function FinancialServicesPage() {
                                                 accuracy, maintains audit trails, and provides
                                                 version control for all generated reports.
                                             </p>
+                                        </div>
+                                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden border shadow-lg">
+                                            <DynamicMedia
+                                                src={getDynamicImage(
+                                                    "Financial Services Page",
+                                                    "Block 4",
+                                                    "Image 1",
+                                                )}
+                                                alt="Financial Reporting Dashboard"
+                                                className="w-full h-full object-cover"
+                                            />
                                         </div>
                                     </div>
 

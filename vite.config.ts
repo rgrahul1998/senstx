@@ -10,12 +10,12 @@ export default defineConfig({
             // Proxy API and file requests to the Frappe backend.
             // Ensure this target matches your API_URL in src/config.ts
             "/api": {
-                target: "http://127.0.0.1:8000",
+                target: "https://bo.crossrule.com",
                 changeOrigin: true,
                 secure: false,
             },
             "/files": {
-                target: "http://127.0.0.1:8000",
+                target: "https://bo.crossrule.com",
                 changeOrigin: true,
                 secure: false,
             },
