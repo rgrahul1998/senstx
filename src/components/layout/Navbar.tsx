@@ -25,7 +25,8 @@ const Navbar = () => {
     }
 
     const services = [
-        { name: "Artificial Intelligence", href: "/services/ai-services" },
+        { name: "Agentic AI Solutions", href: "/services/ai-services" },
+        { name: "AI & Automation", href: "/services/ai-automation" },
         { name: "Financial Services", href: "/services/financial-services" },
         { name: "Enterprise Solution", href: "/services/enterprise-solution" },
         { name: "Cloud Services", href: "/services/cloud-services" },
