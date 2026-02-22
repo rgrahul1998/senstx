@@ -12,6 +12,8 @@ import DataAnalyticsPage from "../features/services/DataAnalytics"
 import CloudServicesPage from "../features/services/cloudservices"
 import AIServicesPage from "../features/services/AIServicesPage"
 import UseCasesPage from "../features/usecases/UseCasesPage"
+import BlogDetailPage from "../features/usecases/BlogDetailPage"
+
 import NotFound from "../pages/NotFound"
 
 const AppRoutes = () => {
@@ -27,6 +29,8 @@ const AppRoutes = () => {
                 <Route path="/services/cloud-services" element={<CloudServicesPage />} />
                 <Route path="/services/ai-services" element={<AIServicesPage />} />
                 <Route path="/use-cases" element={<UseCasesPage />} />
+                <Route path="/use-cases/:blog_name" element={<BlogDetailPage />} />
+
                 <Route path="/career" element={<CareerPage />} />
                 <Route path="/who-we-are" element={<WhoWeArePage />} />
                 <Route path="/contact" element={<ContactPage />} />
