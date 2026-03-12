@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react"
 import { useParams } from "react-router-dom"
-import { Heart, Linkedin, Youtube, Facebook, Loader2 } from "lucide-react"
+import { Heart, Loader2, X } from "lucide-react"
 import {
     fetchBlogDetail,
     fetchBlogComments,
@@ -13,6 +13,56 @@ import type { Blog, Comment } from "../../api/blog"
 import { Button } from "../../components/common/Button"
 import { processBlogContent, extractHeadings } from "../../utils/blogUtils"
 import { API_URL } from "../../config"
+
+// Custom SVG Icons to avoid Lucide deprecation warnings for brand icons
+const FacebookIcon = ({ size = 20 }: { size?: number }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+)
+
+const LinkedinIcon = ({ size = 20 }: { size?: number }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect width="4" height="12" x="2" y="9" />
+        <circle cx="4" cy="4" r="2" />
+    </svg>
+)
+
+const YoutubeIcon = ({ size = 20 }: { size?: number }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.42 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.42-5.58z" />
+        <path d="m9.75 15.02 5.75-3.02-5.75-3.02V15.02z" />
+    </svg>
+)
+
 export default function BlogDetailPage() {
     const { blog_name } = useParams<{ blog_name: string }>()
     const [blog, setBlog] = useState<Blog | null>(null)
@@ -193,14 +243,27 @@ export default function BlogDetailPage() {
                                     <span className="font-bold text-sm text-slate-900">Share</span>
                                     <div className="flex items-center gap-3">
                                         {[
-                                            { icon: Linkedin, color: "hover:text-[#0077B5]" },
-                                            { icon: Youtube, color: "hover:text-[#FF0000]" },
-                                            { icon: Facebook, color: "hover:text-[#1877F2]" },
+                                            {
+                                                icon: LinkedinIcon,
+                                                color: "hover:text-[#0077B5]",
+                                                label: "LinkedIn",
+                                            },
+                                            {
+                                                icon: YoutubeIcon,
+                                                color: "hover:text-[#FF0000]",
+                                                label: "YouTube",
+                                            },
+                                            {
+                                                icon: FacebookIcon,
+                                                color: "hover:text-[#1877F2]",
+                                                label: "Facebook",
+                                            },
                                         ].map((social, i) => (
                                             <a
                                                 key={i}
                                                 href="#"
                                                 className={`text-slate-900 ${social.color} transition-colors`}
+                                                aria-label={social.label}
                                             >
                                                 <social.icon size={20} />
                                             </a>
@@ -208,15 +271,9 @@ export default function BlogDetailPage() {
                                         <a
                                             href="#"
                                             className="text-slate-900 hover:text-black transition-colors"
+                                            aria-label="X (Twitter)"
                                         >
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                            >
-                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                                            </svg>
+                                            <X size={20} />
                                         </a>
                                     </div>
                                 </div>

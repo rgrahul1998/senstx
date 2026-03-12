@@ -14,6 +14,12 @@ export interface DigitalInsightsSettings {
     company_add_line_2: string
     media_list?: SettingsMedia[]
     contact_service_list?: string[]
+    social_links?: {
+        linkedin?: string
+        youtube?: string
+        facebook?: string
+        twitter_x?: string
+    }
 }
 
 export interface SettingsResponse {

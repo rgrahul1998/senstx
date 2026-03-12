@@ -76,3 +76,22 @@ export const truncateText = (text: string, maxLength = 150) => {
     if (!text || text.length <= maxLength) return text
     return text.substring(0, maxLength) + "..."
 }
+
+/**
+ * Ensures a URL is absolute by prepending https:// if necessary.
+ * @param {string | undefined} url - The URL to check
+ * @returns {string} The formatted absolute URL
+ */
+export const ensureAbsoluteUrl = (url: string | undefined): string => {
+    if (!url) return "#"
+    const trimmed = url.trim()
+    if (
+        trimmed.startsWith("http://") ||
+        trimmed.startsWith("https://") ||
+        trimmed.startsWith("mailto:") ||
+        trimmed.startsWith("tel:")
+    ) {
+        return trimmed
+    }
+    return `https://${trimmed}`
+}
